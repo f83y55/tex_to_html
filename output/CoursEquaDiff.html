@@ -1,0 +1,311 @@
+<body>
+
+<div class="center"> \Huge<span class="surl"><b>Équations Différentielles</b></span>}\normalsize </div>
+
+<h2 class="section">Généralités</h2>
+<h3 class="subsection">Notion d'équation différentielle</h3>
+
+
+<div class="exo">
+!!!!!!</div>
+ <b>Notions de mécanique</b> 
+<ol>
+  <li> On sait qu'un objet en chute libre pour lequel les frottements à l'air sont négligeables chute avec une accélération constante, égale, sur Terre, à \(g=9{,}81\approx10\)\,m/s\(^2\).<br>
+Si l'objet est lâché sans vitesse initiale, quelle est sa vitesse au bout d'une seconde ? De deux ? De \(10\)\,s ?
+  </li>
+  <li> Même question si on le lance vers le bas avec une vitesse de \(5\)\,m/s.
+  </li>
+  <li> <b>Rappel : </b> La dérivée (par rapport au temps \(t\)) de la position \(x(t)\) est la vitesse (instantanée) \(v(t)\). L'accélération \(a(t)\) est la dérivée de la vitesse par rapport à \(t\), et donc aussi la dérivée seconde de la position par rapport au temps.<br>
+ On a \(a(t)=10\) ; Donner \(v(t)\) et \(x(t)\), sachant que \(v(0)=5\)m/s et \(x(0)=300\)m.
+</ol>
+
+
+<div class="rema">
+!!!!!!</div>
+ Si l'objet est soumis à des frottements (linéaires : proportionnels à la vitesse acquise par l'objet durant sa chute) de coefficients \(K\), sa vitesse vérifie alors \(a(t)+Kv(t)=g\) ; le problème étant que comme \(a(t)=v'(t)\), on obtient :
+\[v'(t)+Kv(t)=g\]
+Il semble alors difficile de déterminer \(v(t)\)... C'est pourtant réalisable, et c'est le but de ce cours.
+<div class="center">
+<img src="assets/chuteLibre.png"/>
+</div>
+
+<div class="rema">
+!!!!!!</div>
+ \(v_{\lim}\) est la vélocité terminale : les frottements conduisent à l'apparition d'une vitesse limite lors de la chute.
+<h3 class="subsection">Définition</h3>
+
+
+<div class="defi">
+!!!!!!</div>
+ Une <b>équation différentielle est une équation dont l'inconnue est une fonction \(y\) de la variable \(t\) ; l'équation est dite différentielle car elle fait apparaître un lien entre les dérivées de \(y\).</b>
+<ul>
+  <li> <b>1er ordre : </b> \[(E_1)~:~~ay'+by=d(t)\]
+  </li>
+  <li> <b>2nd ordre : </b> \[(E_2)~:~~ay''+by'+cy=d(t)\]
+</ul>
+avec \(a\neq0\), \(b\), \(c\) constantes réelles et \(d\) fonction de \(t\).<br>
+
+
+<h3 class="subsection">Notion de solution (particulière)</h3>
+
+<div class="defi">
+!!!!!!</div>
+ Toute fonction vérifiant l'équation différentielle \((E)\) est appelée <b>solution particulière de \((E)\).</b><br>
+
+
+<div class="rema">
+!!!!!!</div>
+ Une équation différentielle a une infinité de solutions (particulières).<br>
+
+
+<div class="exo">
+!!!!!!</div>
+ Vérifier que \(f(t)=\rm{e^{-2x}+4\) est une solution particulière de \((E)~:~~y'+2y=8\).}<br>
+
+ 
+<div class="meth">
+!!!!!!</div>
+ <ol>
+  <li> On calcule \(f'(t)\) (et \(f''(t)\) dans le cas d'une équation du second ordre) ;
+  </li>
+  <li> on réinjecte \(f(t)\) et ses dérivées dans l'équation ;
+  </li>
+  <li> on simplifie pour vérifier que l'égalité de l'équation est bien vérifiée.<br>
+</ol>
+}
+
+<div class="exo">
+!!!!!!</div>
+ Vérifier que \(f(t)=\rm{e^{-t}+3\) et \(g(t)=t\rm{e}^{-t}+3\) sont deux solutions particulières de \((E)~:~~y''+2y'+y=3\).}<br>
+
+
+<div class="rema">
+!!!!!!</div>
+ Une équation différentielle admet la plupart du temps au moins une solution particulière \(f(t)\) de même forme que son second membre ; ainsi, si le second membre est une constante, on pourra poser \(f(t)=A\) (\(A\) cte); si le second membre est un polynôme de degré \(2\), on poser \(f(t)=At^2+Bt+C\) (\(A,B,C\) ctes) ; si le second membre est \(-10\rm{e}^{-2t}\), on posera \(f(t)=Ae^{-2t}\) (\(A\) cte)... La plupart du temps, la forme de \(f(t)\) est directement donnée par l'énoncé du problème.<br>
+
+ 
+<div class="meth">
+!!!!!!</div>
+ <b>Trouver une solution particulière </b>\(f(t)\)
+<ol>
+  <li> On pose \(f(t)=\) même forme que le second membre, avec des constantes \(A\), \(B\),... ;
+  </li>
+  <li> on calcule \(f'(t)\) (et \(f''(t)\) si besoin) (qui vont dépendre des constantes utilisées) ;
+  </li>
+  <li> on réinjecte \(f(t)\) et ses dérivées dans l'équation ;
+  </li>
+  <li> on simplifie ; 
+  </li>
+  <li> on détermine les conditions sur les constantes pour que l'égalité de l'équation soit bien vérifiée ;
+  </li>
+  <li> on remplace les constantes par les valeurs obtenues à l'étape précédente pour écrire l'expression définitive de \(f(t)\).
+</ol>
+}
+
+
+<div class="exo">
+!!!!!!</div>
+ Trouver une solution particulière de \(y'-3y=1-t\) sous la forme \(f(t)=At+B\)
+
+
+<h3 class="subsection">Notion de solution générale</h3>
+
+<div class="rema">
+!!!!!!</div>
+ Les équations différentielles ont une infinité de solutions ; pourtant, celles-ci ne diffèrent que d'une ou deux constantes multiplicatives. Il est ainsi possible d'écrire une formule donnant la forme de toutes les solutions d'une équation différentielle.<br>
+
+<div class="defi">
+!!!!!!</div>
+ On appelle cette formule «<b>solution générale» de l'équation différentielle.</b><br>
+
+<div class="exem">
+!!!!!!</div>
+ \(f(t)=k\rm{e}^{-2x}+4\), où \(k\) est une constante pouvant prendre n'importe quelle valeur réelle, est la solution générale de \((E)~:~~y'+2y=8\).<br>
+
+<div class="rema">
+!!!!!!</div>
+ Dans la solution générale, affecter une valeur réelle quelconque à \(k\) permet d'obtenir une solution particulière de l'équation différentielle étudiée.<br>
+Il existe une méthode permettant d'obtenir facilement ces solutions générales.
+
+<h2 class="section">Méthode de résolution</h2>
+
+<h3 class="subsection">Équation homogène</h3>
+
+<div class="defi">
+!!!!!!</div>
+ Pour transformer un équation différentielle en son <b>équation homogène associée (on dit aussi «sans second membre», celui-ci devant être égal à \(0\)), on ne conserve que les termes contenant \(y\), \(y'\) ou \(y''\) (avec leurs facteurs multiplicatifs).</b><br>
+\noindent<b>1er ordre : </b> \((E_1^*)~:~~ay'+by=0\)<br>
+<b>2nd ordre : </b> \((E_2^*)~:~~ay''+by'+cy=0\) <br>
+
+<div class="rema">
+!!!!!!</div>
+ L'équation homogène associée est notée \((E^*)\) pour permettre de garder les indices s'il y a plusieurs équations, sinon notée \((E_0)\) parfois.
+<h3 class="subsection">Équation caractéristique</h3>
+
+<div class="defi">
+!!!!!!</div>
+C'est une équation numérique obtenue en remplaçant dans \((E^*)\) les symboles \(y\), \(y'\) et \(y''\) par \(1\), \(r\) et \(r^2\) : la puissance de \(r\) correspond à l'ordre de dérivation.<br>
+<b>1er ordre : </b> \((E_1^c)~:~~ar+b=0\)<br>
+<b>2nd ordre : </b> \((E_2^c)~:~~ar^2+br+c=0\) <br>
+
+
+<div class="exo">
+!!!!!!</div>
+ Donner les équations homogènes et caractéristiques des équations différentielles suivantes : 
+<ol>
+  <li> \((E_1)~:~~2y'+10y=10 \)
+  </li>
+  <li> \((E_2)~:~~2y'+10y=2\rm{e}^{-2t}\)
+  </li>
+  <li> \((E_3)~:~~y''+4y'+8y=4\)<br>
+</ol>
+
+
+<div class="prop">
+!!!!!!</div>
+ <b>Solutions générales d'une équation <b>homogène</b></b>
+<ul>
+  <li> <b>1er ordre : </b> \((E^c)~:~~\) une solution \(r\), solution générale de \((E_1^*)\) : <span class="surl">\(k\rm{e</span>^{rt}\)}.<br>
+  </li>
+  <li> <b>2nd ordre : </b> \((E^c)~:~~ar^2+br+c=0\) ; 3 cas :
+<ul>
+  <li> \(\Delta>0\) : \((E^c)\) a deux solutions \(r_1\) et \(r_2\) ; solution générale de \((E_2^*)\) : <span class="surl">\(k\rm{e</span>^{r_1t}+l\rm{e}^{r_2t}\)}.<br>
+  </li>
+  <li> \(\Delta=0\) : \((E^c)\) a une solution \(r_0\) ; solution générale de \((E_2^*)\) : <span class="surl">\(k\rm{e</span>^{r_0t}+lt\rm{e}^{r_0t}\)}.<br>
+  </li>
+  <li> \(\Delta<0\) : \((E^c)\) a deux solutions \(r_1=\alpha-i\beta\) et \(r_2=\alpha+i\beta\), complexes conjuguées (on choisit \(\beta>0\)) ; solution générale de \((E_2^*)\) : <span class="surl">\(k\rm{e</span>^{\alpha t}\cos(\beta t)+l\rm{e}^{\alpha t}\sin(\beta t)\)}.<br>
+</ul>
+</ul>
+
+
+<div class="exo">
+!!!!!!</div>
+ Donner les solutions générales des équations différentielles homogènes suivantes : 
+<ol>
+  <li> \((E_1^*)~:~~2y'+10y=0 \)
+  </li>
+  <li> \((E_2^*)~:~~y''+\omega^2y=0\) (\(\omega\) cte)
+  </li>
+  <li> \((E_3^*)~:~~y''+4y'+8y=0\)
+</ol>
+
+
+<h3 class="subsection">Résoudre une équation différentielle \((E)\) quelconque</h3>
+
+<div class="prop">
+!!!!!!</div>
+ On utilise le <b>principe de superposition</b> :<br>
+ 
+<div class="meth">
+!!!!!!</div>
+ <ol>
+  <li> On recherche une solution particulière \(f(t)\) de \((E)\) ;
+  </li>
+  <li> on écrit \((E^*)\), l'équation homogène associée à \((E)\) ;
+  </li>
+  <li> on en déduit l'équation caractéristique \((E^c)\), que l'on résout ;
+  </li>
+  <li> on en déduit les solutions générales de \((E^*)\) ;
+  </li>
+  <li> On obtient les solutions générales de \((E)\) en ajoutant à une solution particulière de \((E)\), comme ici \(f(t)\), les solutions générales de \((E^*)\).<br>
+</ol>
+}
+
+<div class="exo">
+!!!!!!</div>
+ Donner les solutions générales des équations différentielles suivantes : 
+<ol>
+  <li> \((E_1)~:~~2y'+10y=10 \)
+  </li>
+  <li> \((E_2)~:~~2y'+10y=2\rm{e}^{-2t}\)
+  </li>
+  <li> \((E_3)~:~~y''+4y'+8y=4\)<br>
+</ol>
+
+<h2 class="section">Conditions initiales/particulières</h2>
+
+<div class="defi">
+!!!!!!</div>
+ Poser une <b>condition initiale revient à déterminer quelle solution particulière de l'équation différentielle vaut une valeur donnée \(y(0)\) à \(t=0\) (\(y'(0)\) est aussi donnée dans le cas du 2nd ordre). Si on se place en un autre instant \(t>0\), on parle de <b>condition particulière</b>.</b><br>
+ 
+<div class="meth">
+!!!!!!</div>
+
+On recherche une (autre) solution particulière \(\phi\) ou \(g\) de \((E)\) en remplaçant dans la formule donnant les solutions générales de \((E)\) (2nd ordre : et dans sa dérivée) \(t\) par la valeur donnée et en résolvant l'équation en \(k\) (2nd ordre : le système en \(k\) et \(l\)) obtenu(e).
+}
+
+
+<div class="exo">
+!!!!!!</div>
+ <ol>
+  <li> Après avoir recherché une solution particulière de \((E_1)\) sous la forme \(f(t)=A\) constante, résoudre :<br>
+\[\left\{\begin{array}{l}
+(E_1)~:~~2y'+10y=10 <br>
+~~~~~~~~~y(0)=4<br>
+\end{array}\right.\]
+  </li>
+  <li> Après avoir recherché une solution particulière de \((E_2)\) sous la forme \(f(t)=Ae ^{-2t\), résoudre :}<br>
+\[\left\{\begin{array}{l}
+(E_2)~:~~2y'+10y=2\rm{e}^{-2t} <br>
+~~~~~~~~~y(0)=4<br>
+\end{array}\right.\]
+  </li>
+  <li> Après avoir recherché une solution particulière de \((E_3)\) sous la forme \(f(t)=A\) constante, résoudre :<br>
+\[\left\{\begin{array}{l}
+(E_3)~:~~y''+4y'+8y=4 <br>
+~~~~~~~~~y(0)=2\textrm{~et~} y'(0)=-1<br>
+\end{array}\right.\]
+</ol>
+
+<h2 class="section">Geogebra</h2>
+
+<h3 class="subsection">ChampVecteurs</h3>
+<code>ChampVecteurs[ <f(x,y)> ]</code><br>
+    Représente un champ de vecteurs pour l'équation différentielle \(\mathrm{\mathsf{\frac{dy}{dx}=f(x,y)}}\)<br>
+    
+<div class="exem">
+!!!!!!</div>
+ <code>ChampVecteurs[x+y]</code> représente le champ de vecteurs pour \(y'(x)=x+y(x)\)
+
+<h3 class="subsection">RésolEquaDiff</h3>
+<b>Résolution numérique :</b><br>
+<code>RésolEquaDiff[ <f(x,y)>, <x initial>, <y initial>, <x final>, <pas> ] </code>
+    résout numériquement une équation différentielle d'ordre un : \(\mathrm{\mathsf{\frac{dy}{dx}=f(x,y)}}\)
+à partir d'un point donné par ses coordonnées, avec un pas donné.<br>
+
+<b>Résolution formelle :</b><br>
+<code>RésolEquaDiff[ <f(x, y)> ]</code><br>
+    essaye de trouver la solution exacte de l'équation différentielle d'ordre un \(\mathrm{\mathsf{\frac{dy}{dx}(x)=f(x,y(x))}}\)<br>
+
+<div class="exo">
+!!!!!!</div>
+ Reprendre l'exercice précédent à l'aide de Geogebra.
+ 
+<h2 class="section">Problèmes</h2>
+
+<div class="exo">
+!!!!!!</div>
+ L'allongement \(x\) d'un ressort suit l'équation \((E)\) :
+\[(E)~:~x''(t)+2x'(t)+(1+64\pi^2)x(t)=0\]
+On lâche le ressort (\(x'(0)=0\)) avec un allongement de \(x(0)=0{,}1\)m.<br>
+Déterminer l'allongement du ressort au cours du temps.<br>
+
+<div class="exo">
+!!!!!!</div>
+ Un parachutiste saute d'une hauteur \(x(0)=8\,500\)\,m sans vitesse initiale et ouvre son parachute au bout de \(120\) s. Son poids \(\overrightarrow{P}=m\overrightarrow{g}\) est conditionné par l'accélération de pesanteur \(\overrightarrow{g}\), vers le bas, de norme \(10\)m/s\(^2\). On considère que le parachutiste subit les frottements linéaires de l'air de coefficients \(K_1=0{,}15\) lors de la chute libre puis \(K_2=10\) après l'ouverture du parachute.<br>
+Le principe fondamental de la dynamique Newtonienne conduit à :
+\[(E)~:~~v'+K_{1|2}v=g\]
+
+Résoudre l'équation différentielle \((E)\) et tracer les courbes de position, vitesse et accélération du parachutiste.<br>
+
+
+<div class="exo">
+!!!!!!</div>
+ Étudier l'équation différentielle vérifiée par un circuit série RLC.
+
+
+
+
+
+
+</body>
