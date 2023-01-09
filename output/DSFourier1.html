@@ -1,0 +1,113 @@
+<body>
+
+<div class="center"> \Huge<span class="surl"><b>DS1 -- Séries de Fourier</b></span>}\normalsize </div>
+<b>Prénom NOM :</b>\hrulefill
+<h2 class="section">Signaux à tracer (6\,pts)</h2>
+Tracer, ci-dessous, sur au moins deux périodes, les signaux dont les caractéristiques sont données ci-après :
+
+<ol>
+  <li> \(g\) est un signal pair et \(T\)-périodique défini sur \(\left[ 0;\pi \right]\) par :
+\[g(t)=\left|\begin{array}{l} \cos t  \textrm{~sur~} \left[ 0; \frac{\pi}{2}\right[  <br>
+			     0\textrm{~sur~} \left[ \frac{\pi}{2} ; \pi \right]  <br> 
+				      	\end{array} \right.\]
+  </li>
+  <li>  \(h\) est un signal impair et \(4\)-périodique défini sur \(\left[ 0; 2 \right]\) par :
+\[h(t)=\left|\begin{array}{l}  1 \textrm{~sur~} \left[ 0 ; 1 \right[  <br>
+				2-t   \textrm{~sur~} \left[ 1 ; 2\right]  <br> 
+				      	\end{array} \right.\]
+  </li>
+  <li>  \(h\) est un signal pair et \(4\)-périodique défini sur \(\left[ 0; 2 \right]\) par :
+\[u(t)=\left|\begin{array}{l}  -t \textrm{~sur~} \left[ 0 ; 1 \right[  <br>
+				-1   \textrm{~sur~} \left[ 1 ; 2\right]  <br> 
+				      	\end{array} \right.\]
+  </li>
+  <li>  \(h\) est un signal impair et \(4\)-périodique défini sur \(\left[ 0; 2 \right]\) par :
+\[v(t)=\left|\begin{array}{l}  1-t \textrm{~sur~} \left[ 0 ; 1 \right[  <br>
+				0   \textrm{~sur~} \left[ 1 ; 2\right]  <br> 
+				      	\end{array} \right.\]
+</li></ol>
+
+<ol>
+  <li> <img src="assets/signalvide1.png"/><br>
+  </li>
+  <li> <img src="assets/signalvide2.png"/><br>
+  </li>
+  <li> <img src="assets/signalvide2.png"/><br>
+  </li>
+  <li> <img src="assets/signalvide2.png"/><br>
+</li></ol>
+
+\vspace{2cm}
+
+\begin{flushright}
+Tourner SVP \(\rightarrow\)
+\end{flushright}
+
+\newpage
+<h2 class="section">Problème (14\,pts)</h2>
+On considère la fonction \(f\), périodique de période \(T\), dont une représentation graphique est donnée par la figure ci-dessous :
+<div class="center">
+<img src="assets/fourier.png"/>
+</div>
+Le développement en série de Fourier de cette fonction \(f\) est noté : \(\displaystyle a_0+\sum_{a\geq1}\left[a_n\cos (n\omega t)+b_n\sin(n\omega t)\right]\)
+<ol>
+  <li> Cette question est un QCM. Pour chaque affirmation, une seule des propositions est exacte. <br> 
+Cocher la case correspondant à la réponse exacte.
+
+	<ol>
+  <li> La période \(T\) de la fonction \(f\) est :<br>
+		\(\square\) \(T=3\)<br>
+		\(\square\) \(T=5\)<br>
+		\(\square\) \(T=6\)<br>
+		\(\square\) \(T=+\infty\)<br>
+	  </li>
+  <li> La valeur moyenne \(a_0\) de la fonction \(f\) est :<br>
+		\(\square\) \(a_0=0{,}5\)<br>
+		\(\square\) \(a_0=0{,}6\)<br>
+		\(\square\) \(a_0=1\)<br>
+		\(\square\) \(a_0=1{,}2\)<br>
+		\vspace{3cm}
+	  </li>
+  <li> Pour tout entier \(n\geq1\), on a \(b_n=0\) car :<br>
+		\(\square\) \(f\) est paire.<br>
+		\(\square\) \(f\) est impaire.<br>
+		\(\square\) \(f\) est périodique.<br>
+		\(\square\) \(f\) n'a pas d'harmoniques de rang impair.<br>
+	  </li>
+  <li> Pour tout entier \(n\geq1\), on a<br> \(a_n=\dfrac{4}{T}\int_0^\frac{T}{2}\,f(t)\cos(n\omega t)\,\textrm{d}t\) car :<br>
+		\(\square\) \(f\) est paire.<br>
+		\(\square\) \(f\) est impaire.<br>
+		\(\square\) \(f\) est une intégrale.<br>
+		\(\square\) \(f=\pi R^2\).<br>
+	</li></ol>
+
+	  </li>
+  <li> On rappelle que \(a_n=\dfrac{4}{T}\int_0^\frac{T}{2}\,f(t)\cos(n\omega t)\,\textrm{d}t\)<br>
+	Démontrer, en calculant, que pour tout \(n\geq1\), on a :
+	\[a_n=\dfrac{-4\sin\left(\dfrac{2\pi}{5}n\right)}{\pi n}\]
+	  </li>
+  <li> On rappelle que la valeur efficace \(f_{\textrm{eff}}\) de la fonction \(f\) est donnée par : \(f_{\textrm{eff}}^2=\dfrac{1}{T}\displaystyle\int_0^T \,\left[f(t)^2\right]\,\textrm{d}t\)<br>
+	Démontrer que \(f_{\textrm{eff}^2=2{,}4\)}<br>
+
+	  </li>
+  <li> On note \(S_n\) pour \(n\geq 1\) entier la somme : \(S_n=a_0^2+\dfrac{1}{2}\displaystyle\sum_{k=1}^n a_k^2\)<br>
+	Le tableau suivant contient des valeurs approchées à \(10^{-2}\).<br>
+	Compléter le tableau suivant :
+\[\begin{array}{|l||c|c|c|c|c|}\hline
+n	&1	&2	&3	&4	&~~5~~~  <br> \hline
+a_n	&-1{,}21&-0{,}37&~0{,}25~~&~0{,}30~~&~~~0~~~~  <br> \hline
+a_n^2	&1{,}46	&0{,}14	&~0{,}06~~&~0{,}09~~&~~~0~~~~  <br> \hline
+%S_n	&2{,}16	&2{,}23	&2{,}26&2{,}31	&2{,}31 <br> \hline
+S_n	&2{,}16	&	&2{,}26&	& <br> \hline
+\end{array}\]
+  </li>
+  <li> Déterminer le plus petit entier \(n\) tel que \(S_n\geq0{,95f_{\textrm{eff}}^2\).}
+</li></ol>
+
+
+
+
+
+
+
+</body>

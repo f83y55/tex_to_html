@@ -1,0 +1,431 @@
+<body>
+\titre{Probabilités 2}{Cours}{ -- Lois continues}
+
+
+
+<h2 class="section">Généralités</h2>
+On sait qu'un phénomène doit se produire à un instant donné, entre \(0\)h et \(10\)h. Quelle est la probabilité qu'il ait lieu entre \(7\)h et \(8\)h ?<br>
+Ce type de problème est modélisé en utilisant des lois de probabilité continues.
+
+<h3 class="subsection">Notion de densité</h3>
+Soit \(I\) un intervalle et \(f\) une fonction définie sur \(I\).<br>
+<div class="defi">\(f\) est appelée <b>densité sur \(I\)</b> lorsque :</div>
+
+<ul>
+  <li> \(f\geq0\) ;
+	  </li>
+  <li> \(\displaystyle\int_I\,f(t)\,\textrm{d}t=1\).
+</li></ul>
+
+<div class="exem">
+!!!!!!</div>
+ \(f(t)=\dfrac{3}{500}x(10-x)\) est une densité sur \([0;10]\) :<br>
+<img src="assets/dens1.png"/><br>
+
+<div class="exo">Déterminer la constante \(A\) pour que \(g(x)=Ax\) soit une densité sur \([0;10]\).</div>
+
+
+
+<h3 class="subsection">Fonction de répartition</h3>
+Soit \(I\) un intervalle et \(f\) une densité sur \(I\).<br>
+On pose \(a=\inf(I)\)  et \(b=\sup(I)\) (on peut avoir \(a=-\infty\) et \(b=+\infty\)) et :
+
+\[F(t)=\int_a^t\,f(u)\,\textrm{d}u\]
+
+(\(F\) est ainsi la primitive de \(f\) qui s'annule en \(t=a\))<br>
+
+<div class="defi">Cette primitive \(F\) est appelée <b>fonction de répartition</b>.</div><br>
+
+
+<div class="prop">
+!!!!!!</div>
+ <ul>
+  <li> \(F\) est croissante ;
+	  </li>
+  <li> \(F(a^+)=0\) et \(F(b^-)=1\).
+</li></ul>
+
+
+<div class="exem">
+!!!!!!</div>
+ <br>
+<img src="assets/dens2.png"/>
+
+<h3 class="subsection">Loi de probabilité admettant une densité</h3>
+Soit \(c<d\) deux nombres de l'intervalle \(I\).<br>
+<div class="defi">Si \(X\) est une variable aléatoire qui suit une loi de densité \(f\), alors on a :</div>
+
+\[P(c\leq X\leq d)=\int_c^d\,f(t)\,\textrm{d}t=F(d)-F(c)\]
+
+<div class="exem">
+!!!!!!</div>
+ \(c=4\) et \(d=6{,}5\)<br>
+<img src="assets/dens3.png"/><br>
+
+
+<div class="rema">
+!!!!!!</div>
+ Dans le cas d'une variable aléatoire \(X\) suivant une loi provenant d'une densité, 
+<ul>
+  <li>  pour n'importe quelle valeur de \(c\) dans \(I\),<br> \(P(X=c)=0\) ;
+  </li>
+  <li> \(P(X<d)\,=\,P(X\leq d)\) ;
+  </li>
+  <li> \(P(c<X)\,=\,P(c\leq X)\) ;
+  </li>
+  <li> de même, <br>
+	\(P(c<X<d)=P(c\leq X <d)=P(c<X\leq d)=P(c\leq X\leq d)\).
+</li></ul>
+
+<h3 class="subsection">Espérance et variance</h3>
+Soit \(X\) une variable aléatoire provenant d'une densité \(f\) définie sur un intervalle \(I\).<br>
+
+<div class="defi">Espérance :</div><br>
+\[\mu=E(X)=\int_I\,xf(x)\,\textrm{d}x\]
+
+
+<div class="prop">
+!!!!!!</div>
+\(X\) et \(Y\) sont deux variables aléatoires, \(a\) et \(b\) deux constantes.
+ <ul>
+  <li> \(E(aX+b)=aE(X)+b\)
+  </li>
+  <li> \(E(aX+bY)=aE(X)+bE(Y)\) (linéarité)
+  </li>
+  <li> Si \(X\) et \(Y\) sont <b>indépendantes</b> :<br>
+\(E(XY)=E(X)E(Y)\)<br>
+</li></ul>
+
+<div class="defi">Variance, Écart-type :</div><br>
+\[V(X)=\int_I\,\left[x-E(X)\right]^2f(x)\,\textrm{d}x~~~\textrm{et}~~~\sigma(X)=\sqrt{V(X)}\]
+
+
+<div class="prop">
+!!!!!!</div>
+\(X\) et \(Y\) sont deux variables aléatoires, \(a\) et \(b\) deux constantes.
+ <ul>
+  <li> \(V(aX+b)=a^2V(X)\) et \(\sigma(aX+b)=|a|\sigma(X)\) ;
+  </li>
+  <li> Si \(X\) et \(Y\) sont <b>indépendantes</b> :<br>
+\(V(aX+bY)=a^2V(X)+b^2V(Y)\) <br> et \(\sigma(aX+bY)=\sqrt{[a\sigma(X)]^2+[b\sigma(Y)]^2}\)
+</li></ul>
+
+
+<h2 class="section">Exemples de lois continues</h2>
+<h3 class="subsection">Loi uniforme</h3>
+Cette loi existe sur tout intervalle \(I\) borné (c'est à dire qu'aucune des bornes de \(I\) ne doit être infinie). On sait qu'un événement va se produire à un instant dans l'intervalle de temps \(I=[a;b]\), mais on ne sait pas quand et il n'y a aucune raison de privilégier telle ou telle date.<br>
+
+<div class="defi"><b>Loi uniforme</b> sur \(I=[a;b]\) : </div>
+Cette loi a pour densité la fonction constante sur \(I\) :
+\[f(x)=\dfrac{1}{b-a}\]
+
+<div class="exem">
+!!!!!!</div>
+ Densité uniforme sur \([2;5,5]\) :<br>
+<img src="assets/dens4.png"/>
+
+
+<div class="prop">
+!!!!!!</div>
+ <b>Calcul effectif :</b><br>
+Pour \(c<d\) deux constantes dans \([a;b]\) :<br>
+\[P(c<X<d)=\dfrac{d-c}{b-a}\]
+
+<div class="exo">Le démontrer.</div> %TS
+
+
+<div class="prop">
+!!!!!!</div>
+ <b>Espérance, variance, écart-type :</b><br>
+Si \(X\) suit une loi uniforme sur \([a;b]\) :
+<ul>
+  <li> \(E(X)=\dfrac{a+b}{2}\) (milieu de \([a;b]\)) ;
+  </li>
+  <li> \(V(X)=\dfrac{(b-a)^2}{12}\) et \(\sigma(X)=\dfrac{b-a}{2\sqrt{3}}\).<br>
+</li></ul>
+
+<div class="exo">Le démontrer.</div> %TS
+
+<div class="exo">Mike peut peut débarquer n'importe quand entre \(12\,h\) et \(14\,h\). <br>
+<ol>
+  <li> Quelle est la probabilité qu'il débarque entre \(13\,h\) et \(13\,h\,30\) ?
+  </li>
+  <li> À quelle heure, en moyenne, débarque-t-il ?
+  </li>
+  <li> Il est \(13\,h\) et Mike se fait toujours attendre. Sachant qu'il n'est toujours pas là à \(13\,h\), quelle est la probabilité qu'il arrive avant \(13\,h\,30\) ?
+</li></ol>
+</div>
+
+\vspace{5cm}
+
+
+<h3 class="subsection">Loi exponentielle</h3>
+
+
+Cette loi existe sur \(I=\left[0;+\infty\right[\) ; elle modélise la durée de vie d'un phénomène sans mémoire, comme la durée de vie d'un composant électrique.<br>
+<div class="defi"> <b>Loi exponentielle de paramètre \(\lambda\) : </b><br>
+Cette loi a pour densité la fonction  : </div>
+\[f(x)=\lambda\textrm{e}^{-\lambda x}\]
+
+<div class="exem">
+!!!!!!</div>
+ Densité exponentielle de paramètre \(1/4\) :<br>
+<img src="assets/dens5.png"/>
+
+
+<div class="prop">
+!!!!!!</div>
+ <b>Calcul effectif :</b><br>
+Pour \(c\) constante positive : <br>
+\[P(X<c)=\int_0^c \lambda\textrm{e}^{-\lambda x}\,\textrm{d}x\]
+
+<div class="exo">
+Le composant \(A\) a une durée de vie qui suit une loi exponentielle de paramètre \(0,0004\)<br>
+Calculer la probabilité, arrondie à \(10^{-2</div>\), que le composant \(A\) ait une durée de vie strictement inférieure à \(1\,000\) heures.}
+
+
+<div class="prop">
+!!!!!!</div>
+ <b>Espérance, variance, écart-type :</b><br>
+Si \(X\) suit une loi exponentielle de paramètre \(\lambda\) :
+\[E(X)=\dfrac{1}{\lambda}~~~;~~~V(X)=\dfrac{1}{\lambda^2}~~~;~~~\sigma(X)=\dfrac{1}{\lambda}\]
+
+<div class="exo">Démontrer que \(F(x)=-\left(x+\frac{1</div>{\lambda}\right)\rm{e}^{-\lambda x}\) est une primitive de \(\lambda x\rm{e}^{-\lambda x}\) ; démontrer alors la formule donnant l'espérance d'une loi exponentielle.} %TS
+
+
+<div class="prop">
+!!!!!!</div>
+ <b>Loi sans mémoire :</b><br>
+La loi exponentielle est dite «sans mémoire», dans le sens où si \(c>a>0\) sont donnés, alors :
+\[P_{X>a}(X<c)=P(x<c-a)\]
+
+
+<div class="exo">Le composant \(A\) a une durée de vie qui suit une loi exponentielle de paramètre \(0,0004\).<br>
+Sachant que le composant \(A\) a tenu déjà \(1000\) heures, calculer la probabilité, arrondie à \(10^{-2</div>\), que le composant \(A\) ait une durée de vie strictement inférieure à \(2\,000\) heures.}
+
+
+<h2 class="section">Loi normale</h2>
+
+<h3 class="subsection">Premières propriétés</h3>
+
+Cette loi est définie sur \(\R=\left]-\infty;+\infty\right[\) ; elle est très fréquemment observée dans l'étude de phénomènes physiques ou biologiques.<br>
+<div class="defi"><b>Loi normale d'espérance \(\mu\) et d'écart-type \(\sigma\) : </b><br>
+Cette loi a pour densité la fonction  : </div><br>
+\[f(x)=\dfrac{1}{\sigma\sqrt{2\pi}}\textrm{e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\]
+
+
+<div class="exem">
+!!!!!!</div>
+ Densité normale avec \(\mu=2\) et \(\sigma=\dfrac{1}{2}\) :<br>
+<img src="assets/dens6.png"/><br>
+
+
+<div class="prop">
+!!!!!!</div>
+ La courbe de \(f\) est symétrique par rapport à la droite verticale d'équation \(x=\mu\) ; plus \(\sigma\) est grand, plus la bosse autour de \(\mu\) est applatie ; l'aire sous cette courbe sur \(\R\) reste toujours \(1\).<br>
+
+<div class="defi"> <ul>
+  <li> Si \(\mu=0\), on dit que la loi normale est <b>centrée</b>.
+  </li>
+  <li> Si \(\sigma=1\), on dit que la loi normale est <b>réduite</b>.
+  </li>
+  <li> Si \(\mu=0\) et \(\sigma=1\), on dit que la loi normale est <b>centrée-réduite</b>.
+</li></ul> </div>
+
+
+<div class="prop">
+!!!!!!</div>
+ Si \(X\sim\mathcal{N}(\mu;\sigma^2)\), alors \(Z=\dfrac{X-\mu}{\sigma}\) suit une loi normale centrée réduite.<br>
+
+
+
+<div class="prop">
+!!!!!!</div>
+ Il est important de mémoriser les 3 intervalles suivants :<br> 
+Si \(X\sim\mathcal{N}(\mu;\sigma^2)\), alors :  %TS
+<ul>
+  <li> \(P(\mu-\sigma\leq X\leq \mu+\sigma)\approx68\%\) (à \(10^{-2}\)) ;
+  </li>
+  <li> \(P(\mu-2\sigma\leq X\leq\mu+2\sigma)\approx95\%\) (à \(10^{-2}\)) ;
+  </li>
+  <li> \(P(\mu-3\sigma\leq X\leq \mu+3\sigma)\approx99,7\%\) (à \(10^{-3}\)).<br>
+</li></ul>
+<div class="defi">On appelle l'intervalle \(\left[\mu-2\sigma;\mu+2\sigma\right]\) : <b>plage de normalité</b>.</div><br>
+
+\noindent<img src="assets/distnorm.png"/><br>
+
+<div class="exo">Déterminer \(P(\mu\leq X\leq \mu+3\sigma)\).</div><br>
+
+
+<div class="rema">
+!!!!!!</div>
+ La densité d'une loi normale n'admettant pas de primitive «commune», on utilise la calculatrice ou des tables pour calculer les probabilités d'une variable aléatoire qui suit une loi normale.<br>
+
+
+<div class="rema">
+!!!!!!</div>
+ <b>Calculatrice :</b><br>
+Si \(X\sim\mathcal{N}(\mu,\sigma)\) :
+<ul>
+  <li> TI : dans <span class="surl">Distrib</span>(2nde-Var) : <br>
+\(P(a\leq X\leq b)=\,\)normalFrep(\(a,b,\mu,\sigma\)) <br>
+  </li>
+  <li> Casio : <span class="surl">OPTN</span> / STATS / DIST / Norm <br>
+\(P(a\leq X\leq b)=\,\)Ncd(\(a,b,\sigma,\mu\))<br>
+penser à mettre en mode «variable» (\(\neq\) liste).
+</li></ul>
+
+
+
+<div class="rema">
+!!!!!!</div>
+ Pour \(a=-\infty\), prendre \(a=-10^{99}\) ou pour \(b=+\infty\), prendre \(b=10^{99}\).
+
+<h3 class="subsection">Coefficients \(u_\alpha\) ; inversion de la loi normale</h3>
+
+
+<div class="prop">
+!!!!!!</div>
+ Si \(X\) suit une loi normale de moyenne \(\mu\) et d'écart-type \(\sigma\), alors pour tout \(0<\alpha\leq1\), il existe un unique \(u_\alpha\geq0\) tel que :
+\[P(\mu-u_\alpha \sigma \leq X \leq \mu+u_\alpha \sigma)=1-\alpha\]
+
+
+<div class="demo">
+!!!!!!</div>
+ <div class="exo">On pose pour \(t\geq0\) : \(\phi(t)=P(\mu-t \sigma \leq X \leq \mu+t \sigma)\)
+<ol>
+  <li> Calculer \(\phi(0)\) et \(\displaystyle\lim_{+\infty</div>\phi\).
+  </li>
+  <li> Justifier que \(\phi\) est continue et strictement croissante.
+  </li>
+  <li> Conclure.
+</li></ol>
+}
+
+<div class="exo">Démontrer que :
+\[\begin{array</div>{l}
+~~~~P(\mu-u_\alpha \sigma \leq X \leq \mu+u_\alpha \sigma)=1-\alpha <br>
+\Leftrightarrow~~P( X \leq \mu+u_\alpha \sigma)=1-\dfrac{\alpha}{2} <br>
+\end{array}\]
+}
+
+
+<div class="rema">
+!!!!!!</div>
+ <b>Calculatrice :</b><br>
+Calcul de \(a\) tel que \(P(X\leq a)=p\) (avec \(0<p<1\) donné) :
+<ul>
+  <li> TI : dans <span class="surl">Distrib</span>(2nde-Var) : <br>
+\(\textrm{invNorm}(p,\mu,\sigma)\) ou \(\textrm{FracNormale}(p,\mu,\sigma)\) <br>
+  </li>
+  <li> Casio : <span class="surl">OPTN</span> / STATS / DIST / Norm <br>
+\(\textrm{invN}(p,\sigma,\mu\))<br>
+</li></ul>
+
+
+<div class="exo">Compléter le tableau suivant (à \(10^{-2</div>\)) :} <br>
+\hspace*{-4mm}\begin{tabular}{|l||c|c|c|c|c|c|}\hline
+Risque \(\alpha\)   & \(0,1\%\) & \(0,5\%\) & \(~~1\%\) & \(~~3\%\) & \(~~5\%\) & \(10\%\) <br> \hline
+Seuil  \(1-\alpha\) &         &         &         &         &         &        <br> \hline
+\(u_\alpha\)        &         &         &         &         &         &        <br> \hline \hline
+Risque \(\alpha\)   & \(20\%\) & \(30\%\) & \( 40\%\) & \( 50\%\) & \( 75\%\) & \( 90\%\) <br> \hline
+Seuil  \(1-\alpha\) &         &         &         &         &         &        <br> \hline
+\(u_\alpha\)        &         &         &         &         &         &        <br> \hline
+\end{tabular}
+
+<h3 class="subsection">Exercices</h3>
+<div class="exo">On admet que le temps passé en heures chaque jour devant la TV peut être modélisé par une variable aléatoire \(X\) suivant une loi normale de moyenne \(4\,h\) et d'écart-type \(45\,\)min.
+On donnera les résultats à \(10^{-3</div>\).
+<ol>
+  <li> Déterminer le pourcentage de personnes regardant la télévision entre \(3\) et \(5\) heures par jour.
+  </li>
+  <li> Déterminer le pourcentage de personnes regardant la télévision moins de \(2\) heures par jour
+  </li>
+  <li> Déterminer les trois nombres \(Q_1\), \(Med\) et \(Q_3\) tels que :
+\[P(x<Q_1)=\dfrac{1}{4}~;~P(x<Med)=\dfrac{1}{2}~;~P(X<Q_3)=\dfrac{3}{4}\]
+</li></ol>
+}
+
+\vspace{3cm}
+
+
+
+<div class="exo">Dans une population, le résultat \(X\) au test du QI d'une personne prise au hasard suit une loi normale de moyenne \(100\) et d'écart-type \(15\).
+<ol>
+  <li> Déterminer le pourcentage de personnes ayant un QI supérieur à \(90\) ; inférieur à \(85\) ; entre \(70\) et \(90\).
+  </li>
+  <li> Déterminer le réel \(k\) tel que \(P(X<k)=0,9\) ; interpréter.
+  </li>
+  <li> Déterminer la valeur du réel \(l\) tel que \(60\%\) des personnes ont un QI supérieur à \(l\).
+</li></ol>
+</div>
+
+
+
+
+<h3 class="subsection">Approximation d'une loi binomiale par une loi normale</h3>
+
+
+<div class="prop">
+!!!!!!</div>
+ Si \(X\sim\mathcal{B}(n,p)\), avec \(n\) assez grand (en pratique on prend \(np(1-p)>9\)), alors la loi de \(X\) est proche de celle de la :loi normale \(\mathcal{N}(\mu,\sigma)\) de même espérance (prendre \(\mu=np\)) et de même écart type ( prendre \(\sigma=\sqrt{np(1-p)}\)).<br>
+
+<b>Problème : </b> Pour une loi normale, la probabilité d’une valeur isolée est nulle. Il semble donc impossible de
+calculer \(P(X = k)\) avec cette approximation. <br>
+Approcher la loi binomiale par la loi normale c’est remplacer une loi discrète (celle de \(X\sim\mathcal{B}(n,p)\)) par une loi
+continue (celle de \(X_c\sim\mathcal{N}(\mu=np,\sigma=\sqrt{np(1-p)})\)).<br>
+<b>Solution : </b>On remplace donc la probabilité de la valeur isolée \(x\) de la
+variable \(X\) par celle d’un intervalle de longueur \(1\) centré en \(x\)
+pour la variable \(X_c\) :<br>
+\(P(X = x) \approx P(x -0,5 < X_c < x + 0,5)\)<br>
+<div class="defi">Cette opération s’appelle la <b>correction de continuité</b>.</div><br>
+
+<div class="prop">
+!!!!!!</div>
+ La variable discrète \(X\) étant approchée par la variable continue \(X_c\) , on utilise les règles suivantes d’approximation :
+<ul>
+  <li> \(P(X < n)\) s’obtient avec \(P(X_c < n – 0,5)\) ;
+  </li>
+  <li> \(P(X \leq n)\) s’obtient avec \(P(X_c < n + 0,5)\) ;
+  </li>
+  <li> \(P(X > n)\) s’obtient avec \(P(X_c > n + 0,5)\) ;
+  </li>
+  <li> \(P(X \geq n)\) s’obtient avec \(P(X_c > n – 0,5)\).
+</li></ul>
+On calcule par exemple \(P(a < X \leq b)\) <br> avec \(P(a + 0,5 < X_c < b + 0,5)\).<br>
+
+<div class="exem">
+!!!!!!</div>
+ <br>
+Soit \(X\sim\mathcal{B}\left(50, \frac{1}{2}\right)\).<br>
+Les conditions d'approximations de la loi de \(X\) 
+par une loi normale sont remplies, et l'on peut considérer que \(X\) suit à peu près la loi \(\mathcal{N}\left(25, \frac{25}{2}\right)\).<br>
+Évaluons alors de deux façons \(P(24 \leq X \leq 26)\) :
+<ul>
+  <li> En valeur exacte avec la loi binomiale :<br>
+\(P(X = 24) + P(X = 25) + P(X = 26) \approx 0,3282\) 
+  </li>
+  <li> En valeur approchée avec la loi normale :<br>
+\(P(24 \leq X \leq 26) \approx 0,2222\)
+  </li>
+  <li> En valeur approchée avec la loi normale corrigée par continuité :<br>
+\(P(23,5 \leq X \leq 26,5) \approx 0,3286\)<br>
+Le résultat est bien meilleur en tenant compte de la correction par continuité.
+</li></ul>
+
+<h2 class="section">Théorème central-limite</h2>
+Plus généralement que dans le paragraphe précédent, si \(X_1,X_2,\ldots\) est une suite de variable aléatoires suivant la même loi (mêmes espérances \(m\) et mêmes écarts-type \(s\)), alors leur somme \(S_n=X_1+\cdots+X_n\), pour \(n\) assez grand, suit approximativment une loi normale \(\mathcal{N}\left(nm,\sqrt{n}s\right)\).<br>
+
+<div class="rema">
+!!!!!!</div>
+ de petits phénomènes hasardeux de même type, dans la nature, s'«ajoutent», et la contribution de chacun permet d'obtenir à grande échelle des distributions ressemblant à la courbe de la loi normale (appelée aussi courbe de Gauss).
+
+
+
+
+
+
+
+
+
+</body>

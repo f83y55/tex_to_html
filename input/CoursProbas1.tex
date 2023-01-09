@@ -1,0 +1,488 @@
+\documentclass[a4paper,11pt]{article} \usepackage{FBarticle} \mapage{831}{Probabilités 1} % document papier
+%\documentclass[9pt]{beamer}  \usepackage{FBbeamer} % \mapage{704}{Fonctions exponentielles} % présentation
+
+\begin{document}
+\titre{Probabilités}{Cours}{ -- 1}
+
+
+\begin{multicols}{2}
+\section{Modéliser}
+\subsection{Notion de modèle}
+\exem On lance un dé cubique et on note le numéro de la face supérieure.\par
+\defi{Cette expérience est une \underline{expérience aléatoire} dont les \underline{issues} (résultats possibles) sont $1$, $2$, $3$, $4$, $5$, $6$.}\par
+
+\begin{tabular}{|l||c|c|c|c|c|c|}\hline
+Issue      & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ \\ \hline
+Probabilité  & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{6}$ &$\frac{1}{6}$& $\frac{1}{6}$\\ \hline
+\end{tabular}
+
+\defi{L'\underline{ensemble des issues} est $\Omega=\left\{1;2;3;4;5;6\right\}$.}\par
+\defi{Définir une \underline{probabilité} pour une expérience aléatoire consiste :
+\begin{itemize}
+\item à préciser l'ensemble des issues possibles (l'\underline{univers}) :  $\Omega = \left\{ x_1 ; x_2;\dots ; x_n \right\}$ ;
+\item à attribuer à chacune des issues $x_i$ un nombre $p_i$ positif ou nul, appelé \underline{probabilité} de $x_i$, de sorte que l'on ait : $p_1+p_2+\dots+p_n=1$
+\end{itemize}
+}
+
+\exo{Le dé suivant est truqué :\\
+\begin{tabular}{|l||c|c|c|c|c|c|}\hline
+Issue      & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ \\ \hline
+Probabilité  & $\frac{1}{10}$ & $\frac{1}{10}$ & $\frac{1}{10}$ & $\frac{1}{10}$ &$\frac{1}{10}$& $ ? $\\ \hline
+\end{tabular}\\
+Calculer la probabilité d'obtenir un six.}\par
+\exo{Il y a $86\%$ d'élèves droitiers dans ce lycée.\\
+Quelle est la probabilité de tomber au hasard sur un élève qui ne le soit pas ?}\par
+
+\exo{(PISA) Un géologue a affirmé : 
+«Au cours des 20 prochaines années, la probabilité que se produise un tremblement de terre à Springfield est de 2 sur 3».\\
+Parmi les propositions suivantes, laquelle exprime le mieux ce que veut dire le géologue ?
+\begin{enumerate}[A :]
+\item Puisque $\frac{2}{3}\times20\approx13,3$, un tremblement de terre aura lieu à Springfield dans 13 à 14 ans.
+\item Puisque $\frac{2}{3}>\frac{1}{2}$, on est sûr qu'il y aura un tremblement de terre à Springfield dans les 20 ans.
+\item La probabilité d'avoir un tremblement de terre dans cette ville est plus forte que celle de ne pas en avoir.
+\item On ne peut rien dire, car personne n'est sûr du moment où un tremblement de terre se produit.
+\end{enumerate}
+}
+
+\subsection{Construire un modèle}
+Il y a deux façons de déterminer les probabilités $p_i$ associées aux issues $x_i$ :\par
+\begin{itemize}
+\item \textbf{Étude statistique - observer les fréquences}\\
+\exem On lance un dé truqué un grand nombre de fois ($10\,000$) et on note le résultat dans le tableau suivant :\\
+\begin{tabular}{|l|c|c|c|c|c|c|}\hline
+Issue      & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ \\ \hline
+Fréq.& $0,125$ & $0,125$ & $0,125$ & $0,125$ & $0,2$ & $0,3$ \\ \hline
+\end{tabular}
+On \underline{décide} alors que l'on a expérimenté un nombre suffisant de lancers pour que les futurs lancers de ce dé respectent les mêmes fréquences que celles de cette expérience. Cette «décision» établit un \underline{modèle} probabiliste : on peut remplacer le mot «Fréquence» (qui est du domaine de la statistique) dans le tableau par le mot «probabilité».\\
+
+\item \textbf{Par le choix de l'équiprobabilité.}\\
+\defi{Dans une situation d'\underline{équiprobabilité}, Toutes les issues possèdent la même probabilité.}\\
+\exem Lancer d'une pièce de monnaie \underline{bien équilibrée} :\\
+\begin{tabular}{|l||c|c|} \hline
+Issue & Pile & Face \\ \hline
+Probabilité& $\frac{1}{2}$ & $\frac{1}{2}$ \\ \hline
+\end{tabular}
+
+\end{itemize}
+\meth{Étude statistique ou équiprobabilité ?\\
+Le choix de l'équiprobabilité se fait lorsqu'il est suggéré dans l'énoncé (pièce équilibrée, tirage dans une urne au hasard).
+Si on est dans une situation où les probabilités de chaque issue n'ont aucune raison d'être les mêmes, on doit mener une étude statistique.}\par
+\exo{Étude statistique ou équiprobabilité ? Le préciser.
+\begin{enumerate}[A :]
+\item On lance un dé bien bien équilibré. 
+\item On choisit au hasard une consonne dans l'alphabet.
+\item Probabilité qu'un foyer français ait $2$ enfants.
+\item Tomber sur le zéro sur une roulette de casino (numérotée de $0$ à $36$).
+\item Que M. Dupont, 40 ans, que l'on ne connaît pas, attrape la grippe l'hiver prochain ?
+\item Qu'une tartine tombe du côté de la confiture ?
+\end{enumerate}}
+\end{multicols}
+
+
+
+\newpage
+\begin{multicols}{2}
+\section{Prévoir}
+\subsection{Probabilité d'un événement}
+\exem On lance un dé cubique et l'on considère l'\underline{événement $A$} : «obtenir au moins $5$».
+Les \underline{issues favorables} à $A$ (qui réalisent $A$) sont $5$ et $6$ ; on note $A=\left\{5;6\right\}$.\\
+Pour le dé truqué (utilisé précédemment), si $P(5)=0,2$ et $P(6)=0,3$ alors $P(A)=0,2+0,3=0,5$.\\
+Pour un dé équilibré (situation d'équiprobabilité) : $P(5)=P(6)=\frac{1}{6}$ alors $P(A)=\frac{1}{6}+\frac{1}{6}=\frac{1}{3}$\par
+\defi{Un \underline{événement} $A$ est un sous-ensemble (aussi appelée partie) de l'univers $\Omega$ (on note $A\subset\Omega$, on dit «$A$ inclus dans $\Omega$»).\\
+La \underline{probabilité} $P(A)$ est la somme des probabilités des issues favorables à $A$.}\par
+\prop \begin{itemize}
+\item Pour tout événement $A$, on a :
+$$0\leqslant P(A)\leqslant 1$$
+\item On a $P(\Omega)=1$.
+\item L'événement $B$ : «obtenir un $7$» sur un dé est \underline{impossible} : $P(B)=0$.\\ On note $\emptyset$ l'événement impossible ($B=\emptyset$).
+\end{itemize}\par
+
+\prop Dans une \textbf{situation d'équiprobabilité}, la probabilité d'un événement $A$ est :
+
+$$P(A)=\frac{\textrm{nombre d'issues favorales à }A}{\textrm{nombre d'issues possibles}}$$
+
+
+\subsection{Opérations sur les événements}
+\defi{Si $A$ et $B$ sont deux événements,
+\begin{itemize}
+\item On note $\overline{A}$ l'événement complémentaire de $A$ (toutes les issues qui ne réalisent pas $A$.)
+\item L'événement $A\cap B$ est l'ensemble des issues qui réalisent $A$ ET $B$ (simultanément).
+\item L'événement $A\cup B$ est l'ensemble des issues qui réalisent $A$ OU $B$ (au moins l'un des deux).
+\end{itemize}
+}
+
+\exem On lance un dé cubique et équilibré, et on note les événements suivants :
+\begin{itemize}
+\item $A$ : «obtenir un nombre pair»
+\item $B$ : «obtenir un un ou un six»
+\end{itemize}
+On a alors :
+\begin{center}\begin{tabular}{|c|c|}\hline 
+$A=\left\{2;4;6\right\}$ & $P(A)=\frac{3}{6}=\frac{1}{2}$\\ \hline
+$B=\left\{1;6\right\}$ & $P(B)=\frac{2}{6}=\frac{1}{3}$ \\ \hline
+$\overline{A}=\left\{1;3;5\right\}$ & $p\left(\overline{A}\right)=\frac{3}{6}=\frac{1}{2}$  \\ \hline
+$A\cap B=\left\{6\right\}$ & $P(A\cap B)=\frac{1}{6}$ \\ \hline
+$A\cup B=\left\{1,2;4;6\right\}$ & $P(A\cup B)=\frac{4}{6}=\frac{2}{3}$\\ \hline
+\end{tabular}
+\end{center}
+\exo{Reproduire le tableau précédent dans le cas d'un dé octaèdrique (8 faces).}\par
+
+\prop Soit $A$ et $B$ deux événements :\\
+\begin{itemize}
+\item Événement complémentaire : $P(\overline{A})=1-P(A)$\\
+\includegraphics[width=4.5cm]{1_0517prob1.png}
+\item Union quelconque :\\
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+\includegraphics[width=4.5cm]{1_0517prob2.png}\\
+\item Union disjointe :\\
+\defi{Lorsqu'on sait que $A$ et $B$ ne peuvent être réalisés en même temps ; $A$ et $B$ sont dits \underline{incompatibles} ; dans ce cas on a $P(A\cap B)=0$.}\\
+\prop\\ Si $P(A\cap B)=0$, alors $P(A\cup B)=P(A)+P(B)$
+\includegraphics[width=4.5cm]{1_0517prob3.png}
+\end{itemize}\par
+
+
+\exo{$A$ et $B$ sont deux événements quelconques ; exprimer $P(A\cap B)$ en fonction de $P(A)$, $P(B)$ et $P(A\cup B)$.}\par
+\exo{$P(A)=0,7$ et $P(B)=0,6$.\\ Montrer que $A$ et $B$ ne peuvent pas être incompatibles.\\ En dégager une condition sur les probabilités de $A$ et $B$ impliquant que ces deux événements soient incompatibles.}\par
+\exo{Chaque ligne du tableau représente une situation différente. Compléter le tableau.
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+$~~~A~~~$ & $~~~B~~~$ & $~~~\overline{A}~~~$ & $~~~\overline{B}~~~$ & $~~A\cap B~~$ & $~~A\cup B~~$ \\ \hline \hline   
+   0,2    &    0,5    &                      &                      &      0,1      &               \\ \hline
+   0,6	  &           &                      &          0,6         &       0       &               \\ \hline
+          &           &       0,7            &          0,7         &               &     0,5        \\ \hline
+          &           &                      &          0,8         &      0,2      &    0,4        \\ \hline
+\end{tabular}}
+\prop Si $A$ et $B$ sont deux événements quelconques, on a toujours :
+$$P(A\cap B)\leqslant \begin{array}{c}P(A)\\P(B)\\ \end{array}\leqslant P(A\cup B)$$
+\prop \textbf{Lois de Morgan :}\\
+$$\overline{A\cap B}=\overline{A}\cup\overline{B}~~\textrm{et}~~\overline{A\cup B}=\overline{A}\cap\overline{B}$$
+\exo{Illustrer les lois de Morgan en donnant un exemple pour $A$ et $B$.}
+
+\newpage
+\section{Variables aléatoires}
+\subsection{Définition}
+\defi{Soit $\Omega$ l'univers associé à une expérience aléatoire.\\
+Une fonction de $\Omega$ à valeurs dans $\R$ est appelée \underline{variable aléatoire}.}\par
+
+\exem Souvent, une variable aléatoire est utilisée pour rendre compte des gains dans un jeu de hasard.\\
+On lance un dé ($6$ faces, bien équilibré), puis une pièce (bien équilibrée) ;
+\begin{itemize}
+\item si le dé donne $1$, on gagne $5$\euro ;
+\item si le dé donne $6$, on gagne $10$\euro ;
+\item si le dé donne un nombre compris entre $1$ et $5$ inclus, on gagne $0$\euro ;
+\item ensuite, si la pièce donne pile, on ajoute $5$\euro ;
+\item si la pièce donne face, on retire $5$\euro ;
+\end{itemize}
+On note $G$ les gains ou pertes ($G$ est en valeur algébrique) à la fin du jeu.
+
+\exo{Compléter l'arbre de probabilités suivant :}\\
+\meth{\begin{itemize}
+\item On note sur chaque arête (= segment) la probabilité de passer de d'un sommet de cette arête au sommet suivant.
+\item On calcule les valeurs de $G$ obtenues en suivant chaque chemin de la racine de l'arbre jusqu'aux extrémités des branches.
+\item On note aussi la probabilité de suivre chacun de ces chemins : il suffit de calculer le produit des probabilités figurant sur chaque arête qui constitue un chemin.
+\end{itemize}}
+\includegraphics[width=7cm]{1_0517probFig2.png}\par
+
+\exo{\begin{enumerate}[a)]
+\item Quelles sont les valeurs possibles de $G$ ?
+\item Calculer $P(G=5)$, c'est à dire la probabilité de gagner $5$\euro{} à ce jeu.
+\item Pourquoi est-il vrai que $P(G=-10)=0$ ?
+\end{enumerate}}
+
+\subsection{Loi de probabilité}
+Notons $I=\left\{x_1;...;x_n\right\}$ l'ensemble des valeurs, rangées par ordre croissant, prises par une variable aléatoire $X$ sur un univers $\Omega$.\par
+\rema On manie ici des variables aléatoires ayant un nombre fini de valeurs (variables aléatoires discrètes). En utilisant des intégrales, plus tard, on pourra manier des variables alétoires dites continues, possédant un nombre infini de valeurs.\par
+
+\defi{On appelle \underline{loi de probabilité de $X$} le tableau \underline{associant les valeurs de $X$ aux probabilités} \underline{qui leur correspondent}.} Un tel tableau se présente de la manière suivante :\par
+\begin{tabular}{|l||c|c|c|c|}\hline
+$X$ & $x_1$ & $x_2$ & ... & $x_n$ \\ \hline
+prob& $P(X=x_1)$ & $P(X=x_2)$ & ... & $P(X=x_n)$ \\ \hline
+\end{tabular}
+
+\exo{Compléter la loi de probabilité de $G$ :\\
+\begin{tabular}{|l||c|c|c|c|c|}\hline
+$G$ & ~~~~  & ~~~~  & $5$             & ~~~~ & ~~~~ \\ \hline
+prob&      &     & $\frac{5}{12}$  &      &      \\ \hline
+\end{tabular}}\par
+
+\rema Ce tableau est à rapprocher d'un tableau statistique : les probabilités jouent le même rôle que les fréquences en statistiques.
+
+\subsection{Espérance}
+\defi{On note $E(X)$ la moyenne des valeurs $x_1;...;x_n$ d'une variable aléatoire $X$ pondérée («coefficientée») par les probabilités associées à chacunes de ces valeurs.
+\begin{eqnarray*}
+E(X)&=&\sum_{k=1}^{k=n} P(X=x_k)\times x_k\\ &=&P(X=x_1)\times x_1+\cdots+P(X=x_n)\times x_n \\ \end{eqnarray*}
+$E(X)$ s'appelle l'\underline{espérance} de la variable aléatoire $X$.}\par
+\exo{Calculer la moyenne des gains $E(G)$ (la somme que l'on peut \underline{espérer} gagner, en moyenne, en jouant à ce jeu).}
+
+\prop Si $X$ est une variable aléatoire et $a$ et $b$ deux constantes, on a :
+$$E(aX+b)=aE(X)+b$$
+\exo{On note $T=G-k$, où $k$ est une constante et $G$ la variable aléatoire donnant les gains du jeu déjà étudié.\\
+$k$ désignera le montant de l'inscription à notre jeu de hasard.\\
+Quelle valeur doit-on donner à $k$ pour que $E(T)=0$ (jeu dit «équitable» en termes juridiques associés aux jeux de hasard).}
+
+
+\newpage
+\subsection{Variance}
+\defi{On note $V(X)$ la \underline{variance} d'une variable aléatoire $X$ de valeurs $x_1;...;x_n$ pondérée par les probabilités associées à chacunes de ces valeurs.}
+$$V(X)=\sum_{k=1}^{k=n} P(X=x_k)\times (x_k-E(X))^2$$
+\rema Plus la variance est importante, plus les valeurs de la variable aléatoire sont dispersées (en regard des probabilités.\par
+\exo{Calculer la variance des gains $V(G)$ de notre jeu.}
+
+\prop Soient $a$ et $b$ deux constantes réelles. Soit $X$ une variable aléatoire sur $\Omega$, prenant les valeurs  $\left\{x_1;...;x_n\right\}$. Alors :
+$$V(aX+b)=a^2V(X)$$
+\exo{* Le démontrer.}\par
+\prop On rappelle la formule, bien utile, vue en statistiques :
+$$V(X)=E(X^2)-E(X)^2$$
+\exo{* Démontrer cette formule.}\par
+
+\exo{Calculer la variance des gains $V(G)$ de notre jeu à l'aide de cette formule, après avoir complété le tableau suivant :\\
+~~~~~~~
+\begin{tabular}{|l||c|c|c|c|c|}\hline
+$G$ & ~~~~  & ~~~~  & $5$             & ~~~~ & ~~~~ \\ \hline
+$G^2$&      &      &    $25$          &      &      \\ \hline
+prob&      &     & $\frac{5}{12}$  &      &      \\ \hline
+\end{tabular}
+~~~~$V(G)=\ldots$
+}
+
+
+\subsection{Écart-type}
+\defi{$\sigma(X)=\sqrt{V(X)}$}\par
+\exo{Calculer l'écart-type de $G$. $G=\ldots$ }\par
+\prop $\sigma(aX+b)=|a|\sigma(X)$
+
+\section{Vers la loi binomiale}
+\subsection{Loi de bernoulli}
+\defi{La loi de bernoulli est le modèle de loi le plus simple ; elle utilise une variable aléatoire à deux valeurs $1$ (succès) et $0$ (échec). On note par la lettre $p$ la probabilité d'un succès, c'est à dire $p=P(X=1)$.\\
+La loi de probabilité d'une loi de Bernoulli est donc : }\par
+\begin{center}
+\begin{tabular}{|l||c|c|} \hline
+$X$ & $0$ & $1$ \\ \hline
+prob& $1-p$ & $p$ \\ \hline
+\end{tabular}
+\end{center}
+
+\exo{Donner les valeurs de $p$ correspondant aux expériences aléatoires suivantes : }
+	\begin{itemize}
+	\item on lance un dé (équilibré), on gagne si le dé donne $6$, sinon on perd ;
+	\item on lance une pièce (équilibrée), on gagne si la pièce donne pile.
+	\end{itemize}
+
+\subsection{Espérance et variance d'une loi de Bernoulli}
+\exo{Calculer l'espérance $E(X)$, la variance $V(X)$ et l'écart-type $\sigma(X)$ de $X$ en fonction de $p$.\\
+Pour quelle(s) valeur(s) de $p$ sont-elles maximales ?
+\begin{center}
+\begin{tabular}{|c|c|c|} \hline
+$E(X)$  &  $V(x)$ & $\sigma(X)$ \\ \hline
+~~~~~~~~~~~~~~~&~~~~~~~~~~~~~~~&~~~~~~~~~~~~~~~\\ \hline
+\end{tabular}
+\end{center} }
+
+\subsection{Schéma de Bernoulli}
+\defi{On appelle \underline{$n$-schéma de Bernoulli} ou \underline{Schéma de Bernoulli d'ordre $n$} une répétition de $n$ expériences aléatoires de Bernoulli \textbf{identiques} (ce qui veut dire qu'elles ont le même paramètre de succès $p$).}\par
+\exem On lance un dé équilibré $n=3$ fois de suite, on gagne (succès) si le dé donne $6$ (on peut donc gagner de $0$ à $3$ fois).\par
+\exo{Construire un arbre correspondant à la situation. Combien de branches portent-elles $0$ succès ? $3$ succès ? $2$ succès ?}
+\vspace{6cm}
+
+\exo{Calculer la probabilité de suivre une branche à $2$ succès. Est-ce toujours la même ? En déduire la probabilité de gagner $2$ fois.}\par
+\exo{On note $X$ la variable aléatoire comptant le nombre de succès. Donner la loi de probabilité de $X$.\\
+$$\begin{array}{|l||c|c|c|c|} \hline
+X & ~~~0~~~ & ~~~1~~~ & ~~~2~~~ & ~~~3~~~ \\ \hline
+\textrm{Prob} &&        &         &         \\ \hline
+\end{array}$$}
+
+\subsection{Coefficient binomial}
+On considère un $n$-schéma de bernouilli de paramètre $p\in[0;1]$.\\
+\defi{On note ${n\choose k}$ («$k$ parmi $n$») \underline{le nombre de chemins} de l'arbre réalisant $k$ succès lors des $n$ répétitions.}\par
+\rema C'est en fait le nombre de façons possibles de placer $k$ succès parmi $n$ emplacements.\par
+\rema Par convention, on pose ${0\choose0}=1$.\par
+\exem Dans l'exemple précédent (question o), on a vu que :
+$${3\choose0}=1~~~{3\choose3}=1~~~{3\choose2}=3$$
+\textbf{Important : Calculatrice : }
+\begin{itemize}
+\item TI : \fbox{Math} / PRB / Combinaison\\
+Écrire $6$Combinaison$4$ pour $6\choose4$.
+\item Casio : \fbox{OPTN} / PRB / nCr \\
+Écrire $6$C$4$ pour $6\choose4$.
+\end{itemize}\par
+\prop Comme il n'y a qu'une branche qui ne porte que des succès sur $n$ étapes, on a ${n\choose n}=1$.\\
+Comme il n'y a qu'une branche qui ne porte que des échecs sur $n$ étapes, on a ${n\choose 0}=1$.\\
+Comme l'arbre est symétrique, il y a autant de façon de placer $k$ échecs (c'est à dire $n-k$ succès) que de placer $k$ succès : ${n \choose {n-k}}={n\choose k}$.\\
+\textbf{À retenir :}
+$${n\choose 0\textrm{~ou~}n}=1~~~~~~\textrm{et}~~~~~~{n \choose {n-k}}={n\choose k}$$
+\prop pour $1\leq k\leq n-1$ :
+$${n\choose k}={{n-1}\choose {k-1}}+{{n-1}\choose k}$$
+\demo les chemins comportant $k$ succès sur $n$ emplacement sont de deux types distincts :
+\begin{itemize}
+\item ceux qui ont succès sur le $n$ième emplacement : il y en a autant que $\displaystyle{{n-1}\choose {k-1}}$ ;
+\item ceux qui ont échec sur le $n$ième emplacement : il y en a autant que $\displaystyle{{n-1}\choose k}$ ;
+\end{itemize}
+
+\subsection{Petites valeurs des ${n\choose k}$}
+En utilisant la formule précédente, on peut calculer les $n\choose k$ pour de petites valeurs de $n$, en utilisant le «motif» suivant :
+$$\begin{array}{c|cl}\hline
+\vline \displaystyle{{n-1}\choose{k-1}} &\hspace{-3.15mm}+ \displaystyle{{n-1}\choose{k-1}} &\vline \\ \hline
+&=~\displaystyle{n\choose k} &\vline \\ \cline{2-3}
+\end{array}$$
+\exo{Compléter le \underline{Triangle de Pascal} suivant :
+$$\begin{array}{|c||c|c|c|c|c|c|c|c|}\hline
+n\downarrow\vline~~k\rightarrow
+      & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline\hline
+0     & 1 &   &   &   &   &   &   &   \\ \hline
+1     & 1 & 1 &   &   &   &   &   &   \\ \hline
+2     & 1 &...& 1 &   &   &   &   &   \\ \hline
+3     & 1 &...& 3 & 1 &   &   &   &   \\ \hline
+4     & 1 &...&...&...& 1 &   &   &   \\ \hline
+5     & 1 &...&...&...&...& 1 &   &   \\ \hline
+6     & 1 &...&...&...& 15&...& 1 &   \\ \hline
+7     & 1 &...&...&...&...&...&...& 1 \\ \hline
+\end{array}$$}
+
+\prop On a aussi ${n \choose k}=\dfrac{n!}{k!(n-k)!}$ où pour tout entier $n$, $n!=1\times2\times\cdots\times n$
+
+\section{Loi binomiale}
+La loi binomiale s'utilise dans le cas suivant :\\
+On a un $n$-schéma de Bernoulli de paramètre $p$.\\
+(Comprendre une répétition de $n$ expériences aléatoires de type succès avec une probabilité $p$, échec avec une probabilité $1-p$ à chaque étape, et les $n$ étapes sont identiques.)\\
+On s'intéresse à la variable aléatoire $X$ qui compte le nombre de succès obtenus après les $n$ étapes. Ses valeurs vont de $0$ succès à $n$ succès ; déterminons $P(X=k)$ pour un $k$ entre $0$ et $n$ fixé :
+\begin{itemize}
+\item Il y a $n\choose k$ chemins distincts qui portent $k$ succès (et $n-k$ échecs).
+\item Chacun de ces chemin a une même probabilité : $p^k(1-p)^{n-k}$ (probabilité de $k$ succès et de $n-k$ échecs).
+\end{itemize}
+D'où :
+\subsection{Énoncé de la loi binomiale}
+\prop \textbf{(Théorème : loi binomiale)} Dans un $n$-schéma de Bernoulli de paramètre $p$, la variable aléatoire $X$ qui compte le nombre de succès a pour loi de probabilité :
+$$P(X=k)={n\choose k}p^k(1-p)^{n-k}$$
+\defi{On dit que $X$ suit une \underline{loi binomiale} \underline{de paramètres $n$ et $p$}, et on note :}
+$$X \sim \mathcal{B}(n;p)$$
+\prop (admis) Lorsque $X \sim \mathcal{B}(n;p)$ :
+$$\begin{array}{|c|c|c|}\hline
+E(X)=np & V(X)=np(1-p) & \sigma(X)=\sqrt{np(1-p)} \\ \hline 
+\end{array}$$
+
+
+
+
+
+
+\subsection{Exercice type}
+\exo{Débila passe un examen sous forme de $QCM$. Il y a $8$ questions successives. Pour chaque question, une seule réponse sur les $4$ proposées est correcte. Elle est reçue (événement $I$) si elle obtient au moins $4$ réponses correctes. On note $H$ la variable aléatoire qui compte le nombre de bonnes réponses données.\\
+On suppose qu'elle sache tenir un stylo et cocher au hasard une case par réponse. Et qu'elle le fasse !
+\begin{enumerate}[a)]
+\item Quelle est la loi suivie par $H$ ? \underline{Justifier}.
+\item Déterminer (utiliser les bonnes notations) la probabilité que Débila ait réussi à $100\%$ ce test.
+\item Déterminer la probabilité que Débila ait $0$ réponses correctes.
+\item Déterminer la probabilité que Débila ait exactement $2$ bonnes réponses.
+\item Déterminer la probabilité que Débila ait strictement moins de $3$ bonnes réponses.
+\item Calculer $P(I)$ et $P\left(\overline{I}\right)$.
+\item Quel nombre de bonnes réponses Débila peut-elle espérer obtenir, en moyenne ?
+\end{enumerate} }
+\textbf{Aide : } \\
+$P(X\leq2)=P(X=0)+P(X=1)+P(X=2)$
+
+\subsection{Calculatrice}
+Si $X\sim\mathcal{B}(n,p)$ :
+\begin{itemize}
+\item TI : dans \fbox{Distrib}(2nde-Var) : \\
+Écrire binomFdp($k,n,p$) pour $P(X=k)$.
+Écrire binomRep($k,n,p$) pour $P(X\leq k)$.
+\item Casio : \fbox{OPTN} / STATS / DIST / Bpd ou Bcd \\
+Écrire binomPD($k,n,p$) pour $P(X=k)$.
+Écrire binomCD($k,n,p$) pour $P(X\leq k)$.
+\end{itemize}
+
+\vfill\null\columnbreak
+
+\section{Probabilités conditionnelles}
+\subsection{Définition et propriétés}
+\defi{Soit $A$, $B$ deux événements avec $P(A)\neq0$.\\
+On note $P_A(B)$ («probabilité de $B$ sachant $A$») le nombre $\displaystyle\frac{P(A\cap B)}{P(A)}$.}\par
+\defi{Soit $A$, $B$ deux événements de probabilité non nulle.\\
+On dit que $A$ et $B$ sont \underline{indépendants} s'ils vérifient une de ces trois affirmations équivalentes :}\\
+\prop\begin{eqnarray*}
+                     & P_A(B)=P(B) \\
+\Leftrightarrow      & P(A\cap B)=P(A)\times P(B) \\
+\Leftrightarrow      & P_B(A)=P(A) \\
+\end{eqnarray*}
+\demo On passe de la première ligne à la deuxième en multipliant par $P(A)$ et de la deuxième à la troisième en divisant par $P(B)$.\par
+
+\rema Lorsque $A$ et $B$ sont indépendants, $A$ et $\overline{B}$ le sont aussi, ainsi que $\overline{A}$ et $B$, et aussi $\overline{A}$ et $\overline{B}$.\par
+
+\exo{On a $P(A)=0,4$, $P(B)=0,5$ et $P(A\cap B)=0,2$.\\
+$A$ et $B$ sont-ils indépandants ?}\par
+
+\prop \textbf{Formule des probabilités totales :}
+Soit $C_1, C_2, \ldots,C_k$ des événements de probabilité non nulle formant une partition de $\Omega$ (tous les $C_i$ sont disjoints et recouvrent $\Omega$ : ils représentent des cas différents). Alors on a :
+$$P(A)=P(A\cap C_1)+P(A\cap C_2)+\cdots+P(A\cap C_k)$$
+Qui peut aussi s'écrire :
+$$P(A)=P(C_1)P_{C_1}(A)+P(C_2)P_{C_2}(A)+\cdots+P(C_k)P_{C_k}(A)$$
+
+\rema $B\neq\emptyset$ et $\overline{B}$ formant une partition de $\Omega$, on a :
+
+$$P(A)=P(B)P_{B}(A)+P(\overline{B})P_{\overline{B}}(A)$$
+\newpage
+\subsection{Exercices}
+\subsubsection*{1 Contrôle qualité}
+Une production en très grande série contient $90\%$ de pièces conformes et $10\%$ de pièces défectueuses. Un contrôle de qualité accepte les pièces conformes dans $92\%$ des cas et rejette les pièces défectueuses dans $94\%$ des cas.\\
+On tire une pièce au hasard dans la production, après le contrôle qualité.
+On note :\\
+$C$ : «la pièce tirée est conforme» ; \\
+$A$ : «la pièce tirée est acceptée au contrôle». \\
+\begin{enumerate}[a)]
+\item \emph{Construire l'arbre des possibilités.}
+\item \emph{En déduire les probabilités des 4 issues possibles.}
+\item \emph{En déduire la probabilité que la pièce prélevée ait subi une erreur de contrôle.}
+\end{enumerate}
+
+\subsubsection*{2 Vaccination}
+À la suite de la découverte dans un pays A des premiers cas d'une maladie contagieuse non mortelle $M$, il a été procédé dans ce pays à une importante campagne de navigation : $70\%$ des habitants ont été vaccinés.\\
+Une étude a révélé que $5\%$ des vaccinés ont été touchés à des degrés divers par la maladie, pourcentage qui s'est élevé à $60\%$ chez les non-vaccinés.
+\begin{enumerate}[a)]
+\item Calculer la probabilité qu'un individu pris au hasard dans la population ait été touché par la maladie.
+\item Calculer la probabilité pour qu'un individu ait été vacciné, sachant qu'il a été atteint par la maladie.
+\end{enumerate}
+
+\vfill\null\columnbreak
+
+\subsubsection*{3 Surdité}
+Un même individu peut être atteint de surdité unilatérale ou bilatérale (mais pas plus). \\
+On note $G$ et $D$ les deux événements «être atteint de surdité à l'oreille gauche/droite».\\
+$G$ et $D$ sont indépendants, et $P(G)=P(D)=5\%$\\
+\begin{enumerate}[a)]
+\item On note aussi :\\
+$B$ : «surdité bilatérale» ;\\
+$U$ : «surdité unilatérale» ;\\
+$S$ : «surdité» (une oreille au moins).\\
+Calculer les probabilités de ces événements.
+\item Sachant qu'un individu pris au hasard dans la population est atteint de surdité, quelle est la probabilité pour qu'il soit atteint de surdité à droite ? Pour qu'il soit atteint de surdité bilatérale ?
+\end{enumerate}
+
+
+\subsubsection*{4 Maintenance industrielle*}
+Dans une entreprise, un technicien passe chaque semaine pour s'occuper de l'entretien des machines.\\
+À chacun de ses passages hebdomadaires, il décide, pour chaque machine, si une intervention est ou non nécessaire. 
+Pour un certain type de machine, le technicien est intervenu la première semaine de leur installation et a constaté que :
+\begin{itemize}
+\item S'il est intervenu la $n$ième semaine, la probabilité qu'il intervienne la $(n+1)$ième semaine est de $\frac{3}{4}$.
+\item S'il n'est pas intervenu la $n$ième semaine, la probabilité qu'il intervienne la $(n+1)$ième semaine est de $\frac{1}{10}$.
+\end{itemize}
+On désigne par $E_n$ l'événement : «le technicien intervient la $n$ième semaine» et on note $p_n=P(E_n)$.
+\begin{enumerate}[a)]
+\item Donner $p_1$ ; $P_{E_n}(E_{n+1})$ et $P_{\overline{E_n}}(E_{n+1})$.
+\item Construire un arbre.
+\item Donner en fonction de $p_n$ : $P(E_{n+1}\cap E_n)$\\ et $P(E_{n+1}\cap\overline{E_n})$.
+\item En déduire que pour tout entier $n$ non nul :\\ $p_{n+1}=\frac{13}{20}p_n-\frac{1}{10}$
+\item En posant $q_n=p_n-\frac{2}{7}$, démontrer que $(q_n)$ est géométrique. Quelle est sa limite ?
+\item En déduire la limite de $p_n$ et interpréter la situation.
+\end{enumerate}
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+\end{document}

@@ -2,15 +2,15 @@ import sys, os, re
 
 # substitutions : \ vaut ¶
 di = { "(.+)¶begin{document}(.+)¶end{document}" : "<body>\g<2></body>", #OK
-        r"(.*)\${2}([^\$]*)\${2}(.*)" : "\g<1>¶[\g<2>¶]\g<3>", #OK math mode (display)
+        r"(.*)\${2}([^\$]*)\${2}(.*)" : "\g<1>¶(¶displaystyle\g<2>¶)\g<3>", #OK math mode (no block display)
         r"(.*)\${1}([^\$]*)\${1}(.*)" : "\g<1>¶(\g<2>¶)\g<3>", #OK math mode
-        r"(.*)¶e\^(.*)" : "\g<1>¶rm{e}^\g<2>", #OK exp
+        r"(.*)¶e\^(.*)" : "\g<1>¶textrm{e}^\g<2>", #OK exp
         r"(.*)(\d),¶!(\d)(.*)" : "\g<1>\g<2>{,}\g<3>\g<4>", #OK , nbre dec
         r"(.*)¶¶(.*)" : "\g<1><br>\g<2>", #~OK sauf math mode 
         r"(.*)¶par(.*)" : "\g<1><br>\g<2>", #OK
         r"(.*)¶item(.*)" : "\g<1>  </li>ŒŒŒ  <li>\g<2>", #OK
-        r"(.*)¶begin\{enumerate\}([^<]*)</li>(.*)¶end\{enumerate\}(.*)" : "\g<1><ol>\g<3></ol>\g<4>",
-        r"(.*)¶begin\{itemize\}([^<]*)</li>(.*)¶end\{itemize\}(.*)" : "\g<1><ul>\g<3></ul>\g<4>",
+        r"(.*)¶begin\{enumerate\}([^<]*)</li>(.*)¶end\{enumerate\}(.*)" : "\g<1><ol>\g<3>ŒŒŒ  </li>ŒŒŒ</ol>\g<4>",
+      r"(.*)¶begin\{itemize\}([^<]*)</li>(.*)¶e/nd\{itemize\}(.*)" : "\g<1><ul>\g<3>ŒŒŒ  </li>ŒŒŒ</ul>\g<4>",
         r"(.*)¶begin\{center\}(.*)¶end\{center\}(.*)" : "\g<1><div class=\"center\">\g<2></div>\g<3>",
         r"(.*)¶begin\{multicols\}\{[0-9]\}(.*)¶end\{multicols\}(.*)" : "\g<1>\g<2>\g<3>",
         r"(.*)¶emph\{([^}]*)\}(.*)" : "\g<1>\g<2>\g<3>",

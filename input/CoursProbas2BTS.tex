@@ -1,0 +1,322 @@
+\documentclass[a4paper,11pt]{article} \usepackage{FBarticle} \mapage{831}{Probabilités 2} % document papier
+%\documentclass[9pt]{beamer}  \usepackage{FBbeamer} % \mapage{704}{Fonctions exponentielles} % présentation
+
+\begin{document}
+\titre{Probabilités 2}{Cours}{ -- Lois continues}
+
+\begin{multicols}{2}
+
+\section{Généralités}
+On sait qu'un phénomène doit se produire à un instant donné, entre $0$h et $10$h. Quelle est la probabilité qu'il ait lieu entre $7$h et $8$h ?\\
+Ce type de problème est modélisé en utilisant des lois de probabilité continues.
+
+\subsection{Notion de densité}
+Soit $I$ un intervalle et $f$ une fonction définie sur $I$.\par
+\defi{$f$ est appelée \underline{densité sur $I$} lorsque :}
+
+\begin{itemize}
+	\item $f\geq0$ ;
+	\item $\displaystyle\int_I\,f(t)\,\textrm{d}t=1$.
+\end{itemize}
+\exem $f(t)=\dfrac{3}{500}x(10-x)$ est une densité sur $[0;10]$ :\\
+\includegraphics[width=7cm]{dens1.png}\par
+
+\exo{Déterminer la constante $A$ pour que $g(x)=Ax$ soit une densité sur $[0;10]$.}
+
+
+
+\subsection{Fonction de répartition}
+Soit $I$ un intervalle et $f$ une densité sur $I$.\\
+On pose $a=\inf(I)$  et $b=\sup(I)$ (on peut avoir $a=-\infty$ et $b=+\infty$) et :
+
+$$F(t)=\int_a^t\,f(u)\,\textrm{d}u$$
+
+($F$ est ainsi la primitive de $f$ qui s'annule en $t=a$)\par
+
+\defi{Cette primitive $F$ est appelée \underline{fonction de répartition}.}\par
+
+\prop \begin{itemize}
+	\item $F$ est croissante ;
+	\item $F(a^+)=0$ et $F(b^-)=1$.
+\end{itemize}
+
+\exem \\
+\includegraphics[width=7cm]{dens2.png}
+
+\subsection{Loi de probabilité admettant une densité}
+Soit $c<d$ deux nombres de l'intervalle $I$.\\
+\defi{Si $X$ est une variable aléatoire qui suit une loi de densité $f$, alors on a :}
+
+$$P(c\leq X\leq d)=\int_c^d\,f(t)\,\textrm{d}t=F(d)-F(c)$$
+\exem $c=4$ et $d=6,\!5$\\
+\includegraphics[width=7cm]{dens3.png}\par
+
+\rema Dans le cas d'une variable aléatoire $X$ suivant une loi provenant d'une densité, 
+\begin{itemize}
+\item  pour n'importe quelle valeur de $c$ dans $I$,\\ $P(X=c)=0$ ;
+\item $P(X<d)\,=\,P(X\leq d)$ ;
+\item $P(c<X)\,=\,P(c\leq X)$ ;
+\item de même, \\
+	$P(c<X<d)=P(c\leq X <d)=P(c<X\leq d)=P(c\leq X\leq d)$.
+\end{itemize}
+
+\subsection{Espérance et variance}
+Soit $X$ une variable aléatoire provenant d'une densité $f$ définie sur un intervalle $I$.\par
+
+\defi{Espérance :}\\
+$$\mu=E(X)=\int_I\,xf(x)\,\textrm{d}x$$
+
+\prop$X$ et $Y$ sont deux variables aléatoires, $a$ et $b$ deux constantes.
+ \begin{itemize}
+\item $E(aX+b)=aE(X)+b$
+\item $E(aX+bY)=aE(X)+bE(Y)$ (linéarité)
+\item Si $X$ et $Y$ sont \textbf{indépendantes} :\\
+$E(XY)=E(X)E(Y)$\\
+\end{itemize}
+
+\defi{Variance, Écart-type :}\\
+$$V(X)=\int_I\,\left[x-E(X)\right]^2f(x)\,\textrm{d}x~~~\textrm{et}~~~\sigma(X)=\sqrt{V(X)}$$
+
+\prop$X$ et $Y$ sont deux variables aléatoires, $a$ et $b$ deux constantes.
+ \begin{itemize}
+\item $V(aX+b)=a^2V(X)$ et $\sigma(aX+b)=|a|\sigma(X)$ ;
+\item Si $X$ et $Y$ sont \textbf{indépendantes} :\\
+$V(aX+bY)=a^2V(X)+b^2V(Y)$ \\ et $\sigma(aX+bY)=\sqrt{[a\sigma(X)]^2+[b\sigma(Y)]^2}$
+\end{itemize}
+
+
+\section{Exemples de lois continues}
+\subsection{Loi uniforme}
+Cette loi existe sur tout intervalle $I$ borné (c'est à dire qu'aucune des bornes de $I$ ne doit être infinie). On sait qu'un événement va se produire à un instant dans l'intervalle de temps $I=[a;b]$, mais on ne sait pas quand et il n'y a aucune raison de privilégier telle ou telle date.\par
+
+\defi{\textbf{Loi uniforme} sur $I=[a;b]$ : }
+\emph{Cette loi a pour densité la fonction constante sur $I$ }:
+$$f(x)=\dfrac{1}{b-a}$$
+\exem Densité uniforme sur $[2;5,5]$ :\\
+\includegraphics[width=8.5cm]{dens4.png}
+
+\prop \textbf{Calcul effectif :}\\
+Pour $c<d$ deux constantes dans $[a;b]$ :\\
+$$P(c<X<d)=\dfrac{d-c}{b-a}$$
+
+\exo{Le démontrer.} %TS
+
+\prop \textbf{Espérance, variance, écart-type :}\\
+Si $X$ suit une loi uniforme sur $[a;b]$ :
+\begin{itemize}
+\item $E(X)=\dfrac{a+b}{2}$ (milieu de $[a;b]$) ;
+\item $V(X)=\dfrac{(b-a)^2}{12}$ et $\sigma(X)=\dfrac{b-a}{2\sqrt{3}}$.\\
+\end{itemize}
+
+\exo{Le démontrer.} %TS
+
+\exo{Mike peut peut débarquer n'importe quand entre $12\,h$ et $14\,h$. \\
+\begin{enumerate}[a)]
+\item Quelle est la probabilité qu'il débarque entre $13\,h$ et $13\,h\,30$ ?
+\item À quelle heure, en moyenne, débarque-t-il ?
+\item Il est $13\,h$ et Mike se fait toujours attendre. Sachant qu'il n'est toujours pas là à $13\,h$, quelle est la probabilité qu'il arrive avant $13\,h\,30$ ?
+\end{enumerate}
+}
+
+\vspace{5cm}
+
+
+\subsection{Loi exponentielle}
+
+
+Cette loi existe sur $I=\left[0;+\infty\right[$ ; elle modélise la durée de vie d'un phénomène \emph{sans mémoire}, comme la durée de vie d'un composant électrique.\par
+\defi{ \textbf{Loi exponentielle de paramètre $\lambda$ : }\\
+Cette loi a pour densité la fonction  : }
+$$f(x)=\lambda\textrm{e}^{-\lambda x}$$
+\exem Densité exponentielle de paramètre $1/4$ :\\
+\includegraphics[width=8.5cm]{dens5.png}
+
+\prop \textbf{Calcul effectif :}\\
+Pour $c$ constante positive : \\
+$$P(X<c)=\int_0^c \lambda\textrm{e}^{-\lambda x}\,\textrm{d}x$$
+
+\exo{
+Le composant $A$ a une durée de vie qui suit une loi exponentielle de paramètre $0,0004$\\
+Calculer la probabilité, arrondie à $10^{-2}$, que le composant $A$ ait une durée de vie strictement inférieure à $1\,000$ heures.}
+
+\prop \textbf{Espérance, variance, écart-type :}\\
+Si $X$ suit une loi exponentielle de paramètre $\lambda$ :
+$$E(X)=\dfrac{1}{\lambda}~~~;~~~V(X)=\dfrac{1}{\lambda^2}~~~;~~~\sigma(X)=\dfrac{1}{\lambda}$$
+
+\exo{Démontrer que $F(x)=-\left(x+\frac{1}{\lambda}\right)\e^{-\lambda x}$ est une primitive de $\lambda x\e^{-\lambda x}$ ; démontrer alors la formule donnant l'espérance d'une loi exponentielle.} %TS
+
+\prop \textbf{Loi sans mémoire :}\\
+La loi exponentielle est dite «sans mémoire», dans le sens où si $c>a>0$ sont donnés, alors :
+$$P_{X>a}(X<c)=P(x<c-a)$$
+
+
+\exo{Le composant $A$ a une durée de vie qui suit une loi exponentielle de paramètre $0,0004$.\\
+Sachant que le composant $A$ a tenu déjà $1000$ heures, calculer la probabilité, arrondie à $10^{-2}$, que le composant $A$ ait une durée de vie strictement inférieure à $2\,000$ heures.}
+
+
+\section{Loi normale}
+
+\subsection{Premières propriétés}
+
+Cette loi est définie sur $\R=\left]-\infty;+\infty\right[$ ; elle est très fréquemment observée dans l'étude de phénomènes physiques ou biologiques.\par
+\defi{\textbf{Loi normale d'espérance $\mu$ et d'écart-type $\sigma$ : }\\
+Cette loi a pour densité la fonction  : }\\
+$$f(x)=\dfrac{1}{\sigma\sqrt{2\pi}}\textrm{e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
+
+\exem Densité normale avec $\mu=2$ et $\sigma=\dfrac{1}{2}$ :\\
+\includegraphics[width=8.5cm]{dens6.png}\par
+
+\prop La courbe de $f$ est symétrique par rapport à la droite verticale d'équation $x=\mu$ ; plus $\sigma$ est grand, plus la bosse autour de $\mu$ est applatie ; l'aire sous cette courbe sur $\R$ reste toujours $1$.\par
+
+\defi{ \begin{itemize}
+\item Si $\mu=0$, on dit que la loi normale est \underline{centrée}.
+\item Si $\sigma=1$, on dit que la loi normale est \underline{réduite}.
+\item Si $\mu=0$ et $\sigma=1$, on dit que la loi normale est \underline{centrée-réduite}.
+\end{itemize} }
+
+\prop Si $X\sim\mathcal{N}(\mu;\sigma^2)$, alors $Z=\dfrac{X-\mu}{\sigma}$ suit une loi normale centrée réduite.\par
+
+
+\prop Il est important de mémoriser les 3 intervalles suivants :\\ 
+Si $X\sim\mathcal{N}(\mu;\sigma^2)$, alors :  %TS
+\begin{itemize} 
+\item $P(\mu-\sigma\leq X\leq \mu+\sigma)\approx68\%$ (à $10^{-2}$) ;
+\item $P(\mu-2\sigma\leq X\leq\mu+2\sigma)\approx95\%$ (à $10^{-2}$) ;
+\item $P(\mu-3\sigma\leq X\leq \mu+3\sigma)\approx99,7\%$ (à $10^{-3}$).\\
+\end{itemize}
+\defi{On appelle l'intervalle $\left[\mu-2\sigma;\mu+2\sigma\right]$ : \underline{plage de normalité}.}\par
+
+\noindent\includegraphics[width=9.5cm]{distnorm.png}\par
+
+\exo{Déterminer $P(\mu\leq X\leq \mu+3\sigma)$.}\par
+
+\rema La densité d'une loi normale n'admettant pas de primitive «commune», on utilise la calculatrice ou des tables pour calculer les probabilités d'une variable aléatoire qui suit une loi normale.\par
+
+\rema \textbf{Calculatrice :}\\
+Si $X\sim\mathcal{N}(\mu,\sigma)$ :
+\begin{itemize}
+\item TI : dans \fbox{Distrib}(2nde-Var) : \\
+$P(a\leq X\leq b)=\,$normalFrep($a,b,\mu,\sigma$) \\
+\item Casio : \fbox{OPTN} / STATS / DIST / Norm \\
+$P(a\leq X\leq b)=\,$Ncd($a,b,\sigma,\mu$)\\
+penser à mettre en mode «variable» ($\neq$ liste).
+\end{itemize}
+
+
+\rema Pour $a=-\infty$, prendre $a=-10^{99}$ ou pour $b=+\infty$, prendre $b=10^{99}$.
+
+\subsection{Coefficients $u_\alpha$ ; inversion de la loi normale}
+
+\prop Si $X$ suit une loi normale de moyenne $\mu$ et d'écart-type $\sigma$, alors pour tout $0<\alpha\leq1$, il existe un unique $u_\alpha\geq0$ tel que :
+$$P(\mu-u_\alpha \sigma \leq X \leq \mu+u_\alpha \sigma)=1-\alpha$$
+
+\demo \exo{On pose pour $t\geq0$ : $\phi(t)=P(\mu-t \sigma \leq X \leq \mu+t \sigma)$
+\begin{enumerate}[a)]
+\item Calculer $\phi(0)$ et $\displaystyle\lim_{+\infty}\phi$.
+\item Justifier que $\phi$ est continue et strictement croissante.
+\item Conclure.
+\end{enumerate}
+}
+
+\exo{Démontrer que :
+$$\begin{array}{l}
+~~~~P(\mu-u_\alpha \sigma \leq X \leq \mu+u_\alpha \sigma)=1-\alpha \\
+\Leftrightarrow~~P( X \leq \mu+u_\alpha \sigma)=1-\dfrac{\alpha}{2} \\
+\end{array}$$
+}
+
+\rema \textbf{Calculatrice :}\\
+Calcul de $a$ tel que $P(X\leq a)=p$ (avec $0<p<1$ donné) :
+\begin{itemize}
+\item TI : dans \fbox{Distrib}(2nde-Var) : \\
+$\textrm{invNorm}(p,\mu,\sigma)$ ou $\textrm{FracNormale}(p,\mu,\sigma)$ \\
+\item Casio : \fbox{OPTN} / STATS / DIST / Norm \\
+$\textrm{invN}(p,\sigma,\mu$)\\
+\end{itemize}
+
+
+\exo{Compléter le tableau suivant (à $10^{-2}$) :} \\
+\hspace*{-4mm}\begin{tabular}{|l||c|c|c|c|c|c|}\hline
+Risque $\alpha$   & $0,1\%$ & $0,5\%$ & $~~1\%$ & $~~3\%$ & $~~5\%$ & $10\%$ \\ \hline
+Seuil  $1-\alpha$ &         &         &         &         &         &        \\ \hline
+$u_\alpha$        &         &         &         &         &         &        \\ \hline \hline
+Risque $\alpha$   & $20\%$ & $30\%$ & $ 40\%$ & $ 50\%$ & $ 75\%$ & $ 90\%$ \\ \hline
+Seuil  $1-\alpha$ &         &         &         &         &         &        \\ \hline
+$u_\alpha$        &         &         &         &         &         &        \\ \hline
+\end{tabular}
+
+\subsection{Exercices}
+\exo{On admet que le temps passé en heures chaque jour devant la TV peut être modélisé par une variable aléatoire $X$ suivant une loi normale de moyenne $4\,h$ et d'écart-type $45\,$min.
+On donnera les résultats à $10^{-3}$.
+\begin{enumerate}[a)]
+\item Déterminer le pourcentage de personnes regardant la télévision entre $3$ et $5$ heures par jour.
+\item Déterminer le pourcentage de personnes regardant la télévision moins de $2$ heures par jour
+\item Déterminer les trois nombres $Q_1$, $Med$ et $Q_3$ tels que :
+$$P(x<Q_1)=\dfrac{1}{4}~;~P(x<Med)=\dfrac{1}{2}~;~P(X<Q_3)=\dfrac{3}{4}$$
+\end{enumerate}
+}
+
+\vspace{3cm}
+
+
+
+\exo{Dans une population, le résultat $X$ au test du QI d'une personne prise au hasard suit une loi normale de moyenne $100$ et d'écart-type $15$.
+\begin{enumerate}[a)]
+\item Déterminer le pourcentage de personnes ayant un QI supérieur à $90$ ; inférieur à $85$ ; entre $70$ et $90$.
+\item Déterminer le réel $k$ tel que $P(X<k)=0,9$ ; interpréter.
+\item Déterminer la valeur du réel $l$ tel que $60\%$ des personnes ont un QI supérieur à $l$.
+\end{enumerate}
+}
+
+
+
+
+\subsection{Approximation d'une loi binomiale par une loi normale}
+
+\prop Si $X\sim\mathcal{B}(n,p)$, avec $n$ assez grand (en pratique on prend $np(1-p)>9$), alors la loi de $X$ est proche de celle de la :loi normale $\mathcal{N}(\mu,\sigma)$ de même espérance (prendre $\mu=np$) et de même écart type ( prendre $\sigma=\sqrt{np(1-p)}$).\par
+
+\textbf{Problème : } Pour une loi normale, la probabilité d’une valeur isolée est nulle. Il semble donc impossible de
+calculer $P(X = k)$ avec cette approximation. \\
+Approcher la loi binomiale par la loi normale c’est remplacer une loi discrète (celle de $X\sim\mathcal{B}(n,p)$) par une loi
+continue (celle de $X_c\sim\mathcal{N}(\mu=np,\sigma=\sqrt{np(1-p)})$).\par
+\textbf{Solution : }On remplace donc la probabilité de la valeur isolée $x$ de la
+variable $X$ par celle d’un intervalle de longueur $1$ centré en $x$
+pour la variable $X_c$ :\\
+$P(X = x) \approx P(x -0,5 < X_c < x + 0,5)$\par
+\defi{Cette opération s’appelle la \underline{correction de continuité}.}\par
+\prop La variable discrète $X$ étant approchée par la variable continue $X_c$ , on utilise les règles suivantes d’approximation :
+\begin{itemize}
+\item $P(X < n)$ s’obtient avec $P(X_c < n – 0,5)$ ;
+\item $P(X \leq n)$ s’obtient avec $P(X_c < n + 0,5)$ ;
+\item $P(X > n)$ s’obtient avec $P(X_c > n + 0,5)$ ;
+\item $P(X \geq n)$ s’obtient avec $P(X_c > n – 0,5)$.
+\end{itemize}
+On calcule par exemple $P(a < X \leq b)$ \\ avec $P(a + 0,5 < X_c < b + 0,5)$.\par
+\exem \par
+Soit $X\sim\mathcal{B}\left(50, \frac{1}{2}\right)$.\\
+Les conditions d'approximations de la loi de $X$ 
+par une loi normale sont remplies, et l'on peut considérer que $X$ suit à peu près la loi $\mathcal{N}\left(25, \frac{25}{2}\right)$.\\
+Évaluons alors de deux façons $P(24 \leq X \leq 26)$ :
+\begin{itemize}
+\item En valeur exacte avec la loi binomiale :\\
+$P(X = 24) + P(X = 25) + P(X = 26) \approx 0,3282$ 
+\item En valeur approchée avec la loi normale :\\
+$P(24 \leq X \leq 26) \approx 0,2222$
+\item En valeur approchée avec la loi normale corrigée par continuité :\\
+$P(23,5 \leq X \leq 26,5) \approx 0,3286$\\
+Le résultat est bien meilleur en tenant compte de la correction par continuité.
+\end{itemize}
+
+\section{Théorème central-limite}
+Plus généralement que dans le paragraphe précédent, si $X_1,X_2,\ldots$ est une suite de variable aléatoires suivant la même loi (mêmes espérances $m$ et mêmes écarts-type $s$), alors leur somme $S_n=X_1+\cdots+X_n$, pour $n$ assez grand, suit approximativment une loi normale $\mathcal{N}\left(nm,\sqrt{n}s\right)$.\par
+\rema de petits phénomènes hasardeux de même type, dans la nature, s'«ajoutent», et la contribution de chacun permet d'obtenir à grande échelle des distributions ressemblant à la courbe de la loi normale (appelée aussi courbe de Gauss).
+
+
+
+
+
+\end{multicols}
+
+
+
+\end{document}
